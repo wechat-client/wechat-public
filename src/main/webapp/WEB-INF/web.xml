@@ -14,5 +14,15 @@
 		<url-pattern>/wechatClient</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+    	<servlet-name>wechatMenu</servlet-name>
+    	<servlet-class>com.wechat.servlet.WeChatMenuServlet</servlet-class>
+    </servlet>
+	
+	<servlet-mapping>
+		<servlet-name>wechatMenu</servlet-name>
+		<url-pattern>/wechatMenu</url-pattern>
+	</servlet-mapping>
+	
 	
 </web-app>
