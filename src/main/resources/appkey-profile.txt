@@ -1,6 +1,6 @@
 服务器配置（用于接收用户信息） 
 URL:http://219.239.42.70/wechat/wechatClient
-Token:weixinCourse
+Token:weixinCourse  
 开发者凭据 
 AppId
 wx136d668a243902c0
