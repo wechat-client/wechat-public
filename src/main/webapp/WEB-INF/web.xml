@@ -21,7 +21,7 @@
 	
 	<servlet-mapping>
 		<servlet-name>wechatMenu</servlet-name>
-		<url-pattern>/wechatMenu</url-pattern>
+		<url-pattern>/wechatMenu </url-pattern>
 	</servlet-mapping>
 	
 	
