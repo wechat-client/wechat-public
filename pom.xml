@@ -26,6 +26,8 @@
     <version>2.4</version>
 </dependency>
 
+
+
   </dependencies>
   <build>
     <finalName>wechat-client</finalName>
