@@ -4,11 +4,13 @@ public class WeChatMenu {
 	
 	  private MenuBasic[] mb;  
 	  
-	    public MenuBasic[] getMenu() {  
+	  	//该处必须命名getButton
+	    public MenuBasic[] getButton() {  
 	        return mb;  
 	    }  
 	  
-	    public void setMenu(MenuBasic[] mb) {  
+	  //该处必须命名getButton
+	    public void setButton(MenuBasic[] mb) {  
 	        this.mb = mb;  
 	    }  
 

@@ -30,7 +30,7 @@ public class MenuManager {
         CommonMenu cm = new CommonMenu();
         cm.setName("养生馆");
         cm.setKey("1");
-        cm.setType("view");
+        cm.setType("click");
  
         CommonMenu cm1 = new CommonMenu();
         cm1.setName("私房菜");
@@ -38,9 +38,9 @@ public class MenuManager {
         cm1.setKey("2");
         
         CommonMenu cm2 = new CommonMenu();
-        cm1.setName("温灸");
-        cm1.setType("click");
-        cm1.setKey("3");
+        cm2.setName("温灸");
+        cm2.setType("click");
+        cm2.setKey("3");
         
         ComplexMenu clm = new ComplexMenu();
         clm.setName("非姐养生");
@@ -54,10 +54,10 @@ public class MenuManager {
          * 比如，第三个一级菜单项不是“更多体验”，而直接是“幽默笑话”，那么menu应该这样定义：<br> 
          * menu.setButton(new Button[] { mainBtn1, mainBtn2, btn33 }); 
          */  
-        WeChatMenu menu = new WeChatMenu();  
-        menu.setMenu(new MenuBasic[] {}); 
+        WeChatMenu button = new WeChatMenu();  
+        button.setButton(new MenuBasic[] {cm,clm}); 
   
-        return menu;  
+        return button;  
     }  
 
 }

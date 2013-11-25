@@ -125,13 +125,18 @@ public class MainUtil {
      * @param accessToken 有效的access_token 
      * @return 0表示成功，其他值表示失败 
      */  
-    public static int createMenu(WeChatMenu menu, String accessToken) {  
+    public static int createMenu(WeChatMenu button, String accessToken) {  
         int result = 0;  
       
         // 拼装创建菜单的url  
         String url = menu_create_url.replace("ACCESS_TOKEN", accessToken);  
         // 将菜单对象转换成json字符串  
-        String jsonMenu = JSONObject.fromObject(menu).toString();  
+        String jsonMenu = JSONObject.fromObject(button).toString().trim();  
+        
+        System.out.println(accessToken);
+        
+        System.out.println(jsonMenu);
+ 
         // 调用接口创建菜单  
         JSONObject jsonObject = httpRequest(url, "POST", jsonMenu);  
       
