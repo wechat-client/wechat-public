@@ -1,0 +1,13 @@
+服务器配置（用于接收用户信息） 
+URL:http://219.239.42.70/wechat/wechatClient
+Token:weixinCourse
+开发者凭据 
+AppId
+wx136d668a243902c0
+AppSecret
+1d557540724ec17578433e3040ebacf3
+
+基础接口	接收用户消息	  
+            向用户回复消息	  
+            接受事件推送	  
+自定义菜单	会话界面自定义菜单	  
