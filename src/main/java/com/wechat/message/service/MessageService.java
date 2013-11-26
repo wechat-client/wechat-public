@@ -171,10 +171,11 @@ public class MessageService {
                 respMessage = MessageUtil.newsMessageToXml(newsMessage); 
             }
             if(msgType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)){
+            	System.out.println("+++++++++++++++++++++++++++++++++___________________");
             	  textMessage.setContent(respContent);  
                   respMessage = MessageUtil.textMessageToXml(textMessage); 
             }
-            
+            System.out.println(respMessage);
            
         } catch (Exception e) {  
             e.printStackTrace();  
