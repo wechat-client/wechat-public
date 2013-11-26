@@ -3,7 +3,8 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     version="3.0">
-    
+ 
+ <!--    
     <servlet>
     	<servlet-name>wechatClient</servlet-name>
     	<servlet-class>com.wechat.servlet.WeChatClientServlet</servlet-class>
@@ -14,7 +15,18 @@
 		<url-pattern>/wechatClient</url-pattern>
 	</servlet-mapping>
 	
+ -->
 
+	 <servlet>
+    	<servlet-name>MessageServlet</servlet-name>
+    	<servlet-class>com.wechat.message.servlet.MessageServlet</servlet-class>
+    </servlet>
+	
+	<servlet-mapping>
+		<servlet-name>MessageServlet</servlet-name>
+		<url-pattern>/wechatClient</url-pattern>
+	</servlet-mapping>
+	
 	
 	
 </web-app>
