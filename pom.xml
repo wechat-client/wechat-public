@@ -26,7 +26,19 @@
     <version>2.4</version>
 </dependency>
 
+<!-- add by jzr -->
+<dependency>
+    <groupId>dom4j</groupId>
+    <artifactId>dom4j</artifactId>
+    <version>1.6.1</version>
+</dependency>
 
+<!-- add by jzr -->
+<dependency>
+    <groupId>com.thoughtworks.xstream</groupId>
+    <artifactId>xstream</artifactId>
+    <version>1.4.5</version>
+</dependency>
 
   </dependencies>
   <build>

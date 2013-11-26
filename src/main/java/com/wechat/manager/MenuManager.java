@@ -27,10 +27,10 @@ public class MenuManager {
      * @return 
      */  
     private static WeChatMenu getMenu() {  
-        CommonMenu cm = new CommonMenu();
-        cm.setName("养生馆");
-        cm.setKey("1");
-        cm.setType("click");
+        ViewMenu vm = new ViewMenu();
+        vm.setName("养生馆");
+        vm.setUrl("www.sina.com.cn");
+        vm.setType("view");
  
         CommonMenu cm1 = new CommonMenu();
         cm1.setName("私房菜");
@@ -55,7 +55,7 @@ public class MenuManager {
          * menu.setButton(new Button[] { mainBtn1, mainBtn2, btn33 }); 
          */  
         WeChatMenu button = new WeChatMenu();  
-        button.setButton(new MenuBasic[] {cm,clm}); 
+        button.setButton(new MenuBasic[] {vm,clm}); 
   
         return button;  
     }  
