@@ -175,7 +175,8 @@ public class MessageService {
             if(msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)){
             	 
                 respMessage = MessageUtil.newsMessageToXml(newsMessage); 
-            }else{
+            }
+            if(msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)){
             	  textMessage.setContent(respContent);  
                   respMessage = MessageUtil.textMessageToXml(textMessage); 
             }
