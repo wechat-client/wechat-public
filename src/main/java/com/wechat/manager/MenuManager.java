@@ -1,5 +1,6 @@
 package com.wechat.manager;
 
+import com.wechat.menu.pojo.Menu;
 import com.wechat.pojo.TokenPojo;
 import com.wechat.wechatutil.MainUtil;
 import com.wechat.pojo.*;
@@ -27,10 +28,15 @@ public class MenuManager {
      * @return 
      */  
     private static WeChatMenu getMenu() {  
-        ViewMenu vm = new ViewMenu();
-        vm.setName("养生馆");
-        vm.setUrl("www.sina.com.cn");
+        Menu vm = new Menu();
+        vm.setName("非姐淘宝小铺");
+        vm.setUrl("https://shop106322402.m.taobao.com/");
         vm.setType("view");
+        
+        Menu cm0 = new Menu();
+        cm0.setName("非姐V付");
+        cm0.setType("click");
+        cm0.setKey("4");
  
         CommonMenu cm1 = new CommonMenu();
         cm1.setName("私房菜");
@@ -46,6 +52,11 @@ public class MenuManager {
         clm.setName("非姐养生");
         clm.setSub_button(new CommonMenu[] {cm1,cm2});
         
+        ComplexMenu clmshop  = new ComplexMenu();
+        clmshop.setName("养生馆");
+        clmshop.setSub_button(new Menu[]{vm,cm0});
+        
+        
   
         /** 
          * 这是公众号xiaoqrobot目前的菜单结构，每个一级菜单都有二级菜单项<br> 
@@ -55,7 +66,7 @@ public class MenuManager {
          * menu.setButton(new Button[] { mainBtn1, mainBtn2, btn33 }); 
          */  
         WeChatMenu button = new WeChatMenu();  
-        button.setButton(new MenuBasic[] {vm,clm}); 
+        button.setButton(new MenuBasic[] {clmshop,clm}); 
   
         return button;  
     }  

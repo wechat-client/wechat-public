@@ -94,39 +94,75 @@ public class MessageService {
                     
                     // TODO 自定义菜单权没有开放，暂不处理该类消息 
                 	 String eventKey = requestMap.get("EventKey"); 
+                	 List<Article> articleList = new ArrayList<Article>(); 
                 	 //return newsMessage
                 	if(eventKey.equals("2")){
-                		
-                		
-                		
-
-                   	    List<Article> articleList = new ArrayList<Article>(); 
-                        
                         Article article1 = new Article();  
                         article1.setTitle("小非私房菜\n引言");  
                         article1.setDescription("");  
-                        article1.setPicUrl("http://0.xiaoqrobot.duapp.com/images/avatar_liufeng.jpg");  
-                        article1.setUrl("http://blog.csdn.net/lyq8479/article/details/8937622");  
+                        article1.setPicUrl("http://pan.baidu.com/s/105fTL");  
+                        article1.setUrl("");  
       
                         Article article2 = new Article();  
-                        article2.setTitle("第2篇\n微信公众帐号的类型");  
-                        article2.setDescription("");  
-                        article2.setPicUrl("http://avatar.csdn.net/1/4/A/1_lyq8479.jpg");  
-                        article2.setUrl("http://blog.csdn.net/lyq8479/article/details/8941577");  
+                        article2.setTitle("第2篇\n最简单剁椒鱼做法");  
+                        article2.setDescription("湘菜的剁椒鱼头分为红色泡椒和绿色酱椒两种，一般来说，红色比较普遍，但是绿色才真的美味。而且剁椒鱼头的肉大且粗\n");  
+                        article2.setPicUrl("http://pan.baidu.com/s/15ULlX");  
+                        article2.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000139&itemidx=1&sign=acf99d39411954471b5146a2eba27eb3#wechat_redirect");  
       
                         Article article3 = new Article();  
-                        article3.setTitle("第3篇\n开发模式启用及接口配置");  
+                        article3.setTitle("第3篇\n自制山楂糕");  
                         article3.setDescription("");  
-                        article3.setPicUrl("http://avatar.csdn.net/1/4/A/1_lyq8479.jpg");  
-                        article3.setUrl("http://blog.csdn.net/lyq8479/article/details/8944988");  
+                        article3.setPicUrl("http://pan.baidu.com/s/1mXUpv");  
+                        article3.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000134&itemidx=1&sign=b6e2d56fcce159b2b0bfe98d369cdb2b#wechat_redirect");  
       
+                        Article article4 = new Article();  
+                        article3.setTitle("第4篇\n白菜煮虾做法");  
+                        article3.setDescription("");  
+                        article3.setPicUrl("http://pan.baidu.com/s/1GKgW2");  
+                        article3.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000126&itemidx=1&sign=815d188401f8ec9d035b5dd39ff5c738#wechat_redirect");  
+                        
                         articleList.add(article1);  
                         articleList.add(article2);  
                         articleList.add(article3);  
+                        articleList.add(article4);
                         newsMessage.setArticleCount(articleList.size());  
                         newsMessage.setArticles(articleList); 
                 		
                 	}
+                	
+                	if(eventKey.equals("3")){
+                        Article article1 = new Article();  
+                        article1.setTitle("养生温灸\n引言");  
+                        article1.setDescription("");  
+                        article1.setPicUrl("http://pan.baidu.com/s/11RaaK");  
+                        article1.setUrl("");  
+      
+                        Article article2 = new Article();  
+                        article2.setTitle("第2篇\n鼻炎治疗小偏方");  
+                        article2.setDescription("");  
+                        article2.setPicUrl("http://pan.baidu.com/s/1jAgvt");  
+                        article2.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000123&itemidx=1&sign=3f0b948965884a2f8d3da2a2681372ee#wechat_redirect");  
+      
+                        Article article3 = new Article();  
+                        article3.setTitle("第3篇\n便秘的治疗");  
+                        article3.setDescription("");  
+                        article3.setPicUrl("http://pan.baidu.com/s/11lcg0");  
+                        article3.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000093&itemidx=1&sign=be66418287657afdc4871bb11b5dbf82#wechat_redirect");  
+      
+                        
+                        articleList.add(article1);  
+                        articleList.add(article2);  
+                        articleList.add(article3);  
+                        //articleList.add(article4);
+                        newsMessage.setArticleCount(articleList.size());  
+                        newsMessage.setArticles(articleList); 
+                		
+                	}
+                	
+                	
+                	
+                	
+                	
                 
                 }  
             }  
