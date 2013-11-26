@@ -174,6 +174,7 @@ public class MessageService {
             	  textMessage.setContent(respContent);  
                   respMessage = MessageUtil.textMessageToXml(textMessage); 
             }
+            
            
         } catch (Exception e) {  
             e.printStackTrace();  
