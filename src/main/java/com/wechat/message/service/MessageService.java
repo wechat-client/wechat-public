@@ -163,12 +163,6 @@ public class MessageService {
                         newsMessage.setArticles(articleList); 
                 		
                 	}
-                	
-                	
-                	
-                	
-                	
-                
                 }  
             }  
   
@@ -176,7 +170,7 @@ public class MessageService {
             	 
                 respMessage = MessageUtil.newsMessageToXml(newsMessage); 
             }
-            if(msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_TEXT)){
+            if(msgType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)){
             	  textMessage.setContent(respContent);  
                   respMessage = MessageUtil.textMessageToXml(textMessage); 
             }
