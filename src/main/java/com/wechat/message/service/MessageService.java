@@ -15,7 +15,7 @@ import com.wechat.message.util.MessageUtil;
 public class MessageService {
 	
 
-	public static final String CTX = "http://219.239.42.70/wechat/image";
+	public static final String CTX = "http://219.239.42.70/wechat/image/";
 
 	/** 
      * 处理微信发来的请求 
