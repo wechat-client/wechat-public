@@ -13,6 +13,9 @@ import com.wechat.message.pojo.TextMessage;
 import com.wechat.message.util.MessageUtil;
 
 public class MessageService {
+	
+
+	public static final String CTX = "http://219.239.42.70/wechat/image";
 
 	/** 
      * 处理微信发来的请求 
@@ -21,6 +24,8 @@ public class MessageService {
      * @return 
      */  
     public static String processRequest(HttpServletRequest request) {  
+    	
+    	
         String respMessage = null;  
         try {  
             // 默认返回的文本消息内容  
@@ -100,25 +105,25 @@ public class MessageService {
                         Article article1 = new Article();  
                         article1.setTitle("小非私房菜\n引言");  
                         article1.setDescription("");  
-                        article1.setPicUrl("http://pan.baidu.com/s/105fTL");  
+                        article1.setPicUrl(CTX + "food.jpg");  
                         article1.setUrl("");  
       
                         Article article2 = new Article();  
                         article2.setTitle("第2篇\n最简单剁椒鱼做法");  
                         article2.setDescription("湘菜的剁椒鱼头分为红色泡椒和绿色酱椒两种，一般来说，红色比较普遍，但是绿色才真的美味。而且剁椒鱼头的肉大且粗\n");  
-                        article2.setPicUrl("http://pan.baidu.com/s/15ULlX");  
+                        article2.setPicUrl(CTX + "yutou.jpg");  
                         article2.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000139&itemidx=1&sign=acf99d39411954471b5146a2eba27eb3#wechat_redirect");  
       
                         Article article3 = new Article();  
                         article3.setTitle("第3篇\n自制山楂糕");  
                         article3.setDescription("");  
-                        article3.setPicUrl("http://pan.baidu.com/s/1mXUpv");  
+                        article3.setPicUrl(CTX + "szg.jpg");  
                         article3.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000134&itemidx=1&sign=b6e2d56fcce159b2b0bfe98d369cdb2b#wechat_redirect");  
       
                         Article article4 = new Article();  
                         article3.setTitle("第4篇\n白菜煮虾做法");  
                         article3.setDescription("");  
-                        article3.setPicUrl("http://pan.baidu.com/s/1GKgW2");  
+                        article3.setPicUrl(CTX + "getimgdata.jpg");  
                         article3.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000126&itemidx=1&sign=815d188401f8ec9d035b5dd39ff5c738#wechat_redirect");  
                         
                         articleList.add(article1);  
@@ -134,19 +139,19 @@ public class MessageService {
                         Article article1 = new Article();  
                         article1.setTitle("养生温灸\n引言");  
                         article1.setDescription("");  
-                        article1.setPicUrl("http://pan.baidu.com/s/11RaaK");  
+                        article1.setPicUrl(CTX + "wenjiu.jpg");  
                         article1.setUrl("");  
       
                         Article article2 = new Article();  
                         article2.setTitle("第2篇\n鼻炎治疗小偏方");  
                         article2.setDescription("");  
-                        article2.setPicUrl("http://pan.baidu.com/s/1jAgvt");  
+                        article2.setPicUrl(CTX + "wj1.jpeg");  
                         article2.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000123&itemidx=1&sign=3f0b948965884a2f8d3da2a2681372ee#wechat_redirect");  
       
                         Article article3 = new Article();  
                         article3.setTitle("第3篇\n便秘的治疗");  
                         article3.setDescription("");  
-                        article3.setPicUrl("http://pan.baidu.com/s/11lcg0");  
+                        article3.setPicUrl(CTX  + "wj2.jpeg");  
                         article3.setUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000093&itemidx=1&sign=be66418287657afdc4871bb11b5dbf82#wechat_redirect");  
       
                         
