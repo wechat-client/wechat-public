@@ -11,8 +11,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 
-import com.wechat.pojo.TokenPojo;
-import com.wechat.pojo.WeChatMenu;
+import com.wechat.menu.pojo.*;
 
 import net.sf.json.JSONException;
 import net.sf.json.JSONObject;

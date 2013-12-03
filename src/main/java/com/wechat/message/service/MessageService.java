@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.wechat.message.pojo.Article;
 import com.wechat.message.pojo.NewsMessage;
 import com.wechat.message.pojo.TextMessage;
-import com.wechat.message.util.MessageUtil;
+import com.wechat.wechatutil.MessageUtil;
 
 public class MessageService {
 	

@@ -1,11 +1,15 @@
 package com.wechat.menu.pojo;
 
-import com.wechat.pojo.MenuBasic;
+
 
 public class Menu extends MenuBasic{
+	
 	private String type;  
     private String url;  
     private String key;
+    
+    
+    
 	public String getType() {
 		return type;
 	}

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.wechat.message.service.MessageService;
-import com.wechat.servlet.SignUtil;
+import com.wechat.wechatutil.SignUtil;
 
 public class MessageServlet extends HttpServlet{
 	
