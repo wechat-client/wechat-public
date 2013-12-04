@@ -13,7 +13,7 @@ import com.wechat.menu.pojo.Menu;
 public class MenuManagerTest {
 
 	/**
-	 * ²âÊÔmenuÉú³ÉµÄ²Ëµ¥ÊÇ·ñ·ûºÏĞèÇó
+	 *æµ‹è¯•menuç”Ÿæˆçš„jsonæ˜¯å¦ç¬¦åˆéœ€æ±‚
 	 */
 	@Test
 	public void testMenuJSON(){
