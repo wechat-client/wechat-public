@@ -1,6 +1,6 @@
 package com.wechat.menu.manager;
 
-import com.wechat.menu.pojo.Menu;
+import com.wechat.menu.pojo.MainMenu;
 import com.wechat.menu.pojo.*;
 import com.wechat.wechatutil.MainUtil;
 
@@ -28,12 +28,13 @@ public class MenuManager {
      * @return 
      */  
     private static WeChatMenu getMenu() {  
-        Menu vm = new Menu();
+    	/***********/
+        MainMenu vm = new MainMenu();
         vm.setName("非姐淘宝小铺");
         vm.setUrl("https://shop106322402.m.taobao.com/");
         vm.setType("view");
         
-        Menu cm0 = new Menu();
+        MainMenu cm0 = new MainMenu();
         cm0.setName("非姐V付");
         cm0.setType("click");
         cm0.setKey("4");
@@ -54,7 +55,7 @@ public class MenuManager {
         
         ComplexMenu clmshop  = new ComplexMenu();
         clmshop.setName("养生馆");
-        clmshop.setSub_button(new Menu[]{vm,cm0});
+        clmshop.setSub_button(new MainMenu[]{vm,cm0});
         
         
   
