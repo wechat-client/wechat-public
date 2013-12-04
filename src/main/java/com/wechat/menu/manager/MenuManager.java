@@ -22,7 +22,7 @@ public class MenuManager {
   
         if (null != at) {  
             // 调用接口创建菜单  
-            int result = MainUtil.createMenu(getMenu(), at.getToken());  
+            int result = MenuUtil.createMenu(getMenu(), at.getToken());  
         }  
     }  
   
