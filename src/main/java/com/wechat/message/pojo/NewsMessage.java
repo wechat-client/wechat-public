@@ -8,7 +8,7 @@ public class NewsMessage extends Message{
     private int ArticleCount;  
     // 多条图文消息信息，默认第一个item为大图  
     private List<Article> Articles;  
-  
+    
     public int getArticleCount() {  
         return ArticleCount;  
     }  

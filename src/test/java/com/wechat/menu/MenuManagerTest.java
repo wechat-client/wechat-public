@@ -26,17 +26,17 @@ public class MenuManagerTest {
 
 	/**
 	 *测试menu生成的json是否符合需求
-	 */
+	 
 	@Test
 	public void testMenuJSON(){
 		List<Menu> menus = MenuManager.getMenu();
 		JSONObject jsonMenu = new JSONObject();
 		jsonMenu.put("button", menus);
 		System.out.println(jsonMenu.toString());
-	}
+	}*/
 	/**
 	 * 测试删除menu
-	 */
+	
 	@Test
 	public void testDeleteMenu(){
 
@@ -45,11 +45,11 @@ public class MenuManagerTest {
         int result = MenuManager.deleteMenu(at.getToken());
         Assert.assertEquals(0, result);
        
-	}
+	} */
 	
 	/**
 	 * 测试添加menu
-	 */
+	 
 	@Test
 	public void testCreateMenu(){
         // 调用接口获取access_token  
@@ -60,5 +60,5 @@ public class MenuManagerTest {
         int result = MenuManager.createMenu(menus, at.getToken());
         Assert.assertEquals(0, result);
        
-	}
+	}*/
 }

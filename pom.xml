@@ -71,7 +71,7 @@
 	    	<version>2.1</version>
 		    <configuration>
 		      <!-- 必须加上后缀/text -->
-		      <url>http://219.239.42.70/manager/text</url>
+		      <url>http://192.168.10.242/manager/text</url>
 		      <server>242server</server>
 	          <path>/wechat</path>
 		    </configuration>
