@@ -15,6 +15,11 @@ public class Menu {
 	private Menu[] sub_button;
 	
 	
+	public Menu() {
+		
+	}
+	
+	
 	public String getName() {
 		return name;
 	}

@@ -1,8 +1,12 @@
 package com.wechat.menu.manager;
 
-import com.wechat.menu.pojo.MainMenu;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import com.wechat.menu.pojo.*;
 import com.wechat.wechatutil.MainUtil;
+import com.wechat.wechatutil.MenuUtil;
 
 
 public class MenuManager {
@@ -24,51 +28,48 @@ public class MenuManager {
   
     /** 
      * 组装菜单数据 
-     *  
      * @return 
      */  
-    private static WeChatMenu getMenu() {  
-    	/***********/
-        MainMenu vm = new MainMenu();
-        vm.setName("非姐淘宝小铺");
-        vm.setUrl("https://shop106322402.m.taobao.com/");
-        vm.setType("view");
-        
-        MainMenu cm0 = new MainMenu();
-        cm0.setName("非姐V付");
-        cm0.setType("click");
-        cm0.setKey("4");
- 
-        CommonMenu cm1 = new CommonMenu();
-        cm1.setName("私房菜");
-        cm1.setType("click");
-        cm1.setKey("2");
-        
-        CommonMenu cm2 = new CommonMenu();
-        cm2.setName("温灸");
-        cm2.setType("click");
-        cm2.setKey("3");
-        
-        ComplexMenu clm = new ComplexMenu();
-        clm.setName("非姐养生");
-        clm.setSub_button(new CommonMenu[] {cm1,cm2});
-        
-        ComplexMenu clmshop  = new ComplexMenu();
-        clmshop.setName("养生馆");
-        clmshop.setSub_button(new MainMenu[]{vm,cm0});
-        
-        
-  
-        /** 
-         * 这是公众号xiaoqrobot目前的菜单结构，每个一级菜单都有二级菜单项<br> 
-         *  
-         * 在某个一级菜单下没有二级菜单的情况，menu该如何定义呢？<br> 
-         * 比如，第三个一级菜单项不是“更多体验”，而直接是“幽默笑话”，那么menu应该这样定义：<br> 
-         * menu.setButton(new Button[] { mainBtn1, mainBtn2, btn33 }); 
-         */  
-        WeChatMenu button = new WeChatMenu();  
-        button.setButton(new MenuBasic[] {clmshop,clm}); 
-        return button;  
+    public static List<Menu> getMenu() {  
+    	
+    	List<Menu> menus = new ArrayList<Menu>();
+    	//第一个一级菜单
+      	Menu pM_1 = new Menu();
+      	pM_1.setName("非姐养生");
+      	
+      	//第一个一级菜单的子菜单
+      	Menu pM_1_sub_1 = new Menu();
+      	pM_1_sub_1.setName("非姐淘宝小铺");
+    	pM_1_sub_1.setType(MenuUtil.MENU_TYPE_VIEW);
+    	pM_1_sub_1.setUrl("https://shop106322402.m.taobao.com/");
+    	
+    	Menu pM_1_sub_2 = new Menu();
+    	pM_1_sub_2.setName("非姐V付");
+    	pM_1_sub_2.setType(MenuUtil.MENU_TYPE_VIEW);
+    	pM_1_sub_2.setKey(MenuUtil.KEY_V_PAY);
+    	
+    	//添加到一级菜单
+    	pM_1.setSub_button(new Menu[]{pM_1_sub_1,pM_1_sub_2});
+    	menus.add(pM_1);
+      	//第二个一级菜单
+      	Menu pM_2 = new Menu();
+      	pM_2.setName("养生馆");
+      	
+      	//第二个一级菜单的子菜单
+      	Menu pM_2_sub_1 = new Menu();
+      	pM_2_sub_1.setName("私房菜");
+      	pM_2_sub_1.setType(MenuUtil.MENU_TYPE_CLICK);
+      	pM_2_sub_1.setKey(MenuUtil.KEY_PERSIONAL_KITCHEN);
+      	
+      	Menu pM_2_sub_2 = new Menu();
+    	pM_2_sub_2.setName("温灸");
+    	pM_2_sub_2.setType(MenuUtil.MENU_TYPE_CLICK);
+    	pM_2_sub_2.setKey(MenuUtil.KEY_WARM_MOXIBUSTION);
+    	//添加到一级菜单，并添加到menus
+    	pM_2.setSub_button(new Menu[]{pM_2_sub_1,pM_2_sub_2});
+    	menus.add(pM_2);
+    	
+    	return menus;
     }  
 
 }
