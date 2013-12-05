@@ -2,7 +2,7 @@ package com.wechat.message.pojo;
 
 public class Message {
 	
-	   // 开发者微信号  
+	// 开发者微信号  
     private String ToUserName;  
     // 发送方帐号（一个OpenID）  
     private String FromUserName;  
