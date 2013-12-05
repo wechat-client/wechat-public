@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.wechat.user.dao.UserDao;
+import com.wechat.user.dao.IUserDao;
 import com.wechat.user.pojo.User;
 import com.wechat.user.service.IUserService;
 
@@ -12,18 +12,18 @@ import com.wechat.user.service.IUserService;
 public class UserServiceImpl implements IUserService{
 	
 	@Resource(name="userDao")
-	private UserDao userDao;
+	private IUserDao userDao;
 
 	@Override
-	public boolean userLogin(User user) {
+	public User userLogin(User user) {
 		
 		User dbUser = userDao.findUserByName(user.getUserLoginName());
 		
 		if(dbUser!=null && (dbUser.getUserPassword().equals(user.getUserPassword()))){
-			return true;
+			return dbUser;
 		}
 		
-		return false;
+		return null;
 	}
 
 }

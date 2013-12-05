@@ -4,6 +4,6 @@ import com.wechat.user.pojo.User;
 
 public interface IUserService {
 
-	boolean userLogin(User user);
+	User userLogin(User user);
 	
 }

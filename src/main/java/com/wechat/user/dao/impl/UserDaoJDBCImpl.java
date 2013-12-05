@@ -15,11 +15,11 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
-import com.wechat.user.dao.UserDao;
+import com.wechat.user.dao.IUserDao;
 import com.wechat.user.pojo.User;
 
 @Repository("userDao")
-public class UserJDBCImpl implements UserDao{
+public class UserDaoJDBCImpl implements IUserDao{
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
