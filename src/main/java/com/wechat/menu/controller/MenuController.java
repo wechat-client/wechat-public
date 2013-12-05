@@ -1,4 +1,4 @@
-package com.wechat.menu.manager;
+package com.wechat.menu.controller;
 
 
 import java.util.ArrayList;
@@ -7,11 +7,11 @@ import java.util.List;
 import net.sf.json.JSONObject;
 
 import com.wechat.menu.pojo.*;
-import com.wechat.wechatutil.MainUtil;
-import com.wechat.wechatutil.MenuUtil;
+import com.wechat.common.utils.ConnectWechatUtil;
+import com.wechat.common.utils.MenuUtil;
 
 
-public class MenuManager {
+public class MenuController {
 	
 	// 菜单创建（POST） 限100（次/天）  
     public static final String MENU_CREATE_URL = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";  
@@ -88,7 +88,7 @@ public class MenuManager {
         System.out.println(jsonMenu);
  
         // 调用接口创建菜单  
-        JSONObject jsonObject = MainUtil.httpRequest(url, "POST", jsonMenu.toString());  
+        JSONObject jsonObject = ConnectWechatUtil.httpRequest(url, "POST", jsonMenu.toString());  
       
         if (null != jsonObject) {  
             if (0 != jsonObject.getInt("errcode")) {  
@@ -111,7 +111,7 @@ public class MenuManager {
     	 String url = MENU_DELETE_URL.replace("ACCESS_TOKEN", accessToken);  
     	
     	 // 调用接口创建菜单  
-         JSONObject jsonObject = MainUtil.httpRequest(url, "GET",null);  
+         JSONObject jsonObject = ConnectWechatUtil.httpRequest(url, "GET",null);  
          
          int result = 0;  
          

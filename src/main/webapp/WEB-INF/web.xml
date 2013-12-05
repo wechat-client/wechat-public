@@ -3,21 +3,64 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
           http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
     version="3.0">
- 
- <!--    
-    <servlet>
-    	<servlet-name>wechatClient</servlet-name>
-    	<servlet-class>com.wechat.servlet.WeChatClientServlet</servlet-class>
-    </servlet>
-	
-	<servlet-mapping>
-		<servlet-name>wechatClient</servlet-name>
-		<url-pattern>/wechatClient</url-pattern>
-	</servlet-mapping>
-	
- -->
+	<display-name>Servlet 3.0 Web Application</display-name>
+    <welcome-file-list>
+    	<welcome-file>index.html</welcome-file>
+    	<welcome-file>index.jsp</welcome-file>
+ 	</welcome-file-list>
+    <!-- load spring rescourse -->
+    <context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>classpath:application-context-jdbc.xml</param-value>
+    </context-param>
 
-	 <servlet>
+    <!-- 这个context 可以自己扩展 -->
+    <listener>
+    	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+     <servlet>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+        	<param-name>contextConfigLocation</param-name>
+        	<param-value>classpath:servlet-context.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>dispatcherServlet</servlet-name>
+       	<!-- 不要使用/*,否则dispatcherServlet内部转发的.jsp后缀也被拦截了 -->
+       	<!-- 
+       		   使用/表明 dispatcherServlet 是默认servlet 所有请求 只要不指明具体的servlet 那么都由dispatcherServlet处理
+       		   所以当访问路径为.jsp结尾时可以访问到 因为jsp本质就是一个servlet，
+       		   而访问其他的如.html .do结尾时，则log会提示No mapping found for HTTP request，
+       		   因为.html .do访问没有指明处理的servlet，直接转到默认servlet处理了
+       	 -->
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Famous Character Encoding filter -->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+	<!--session超时时间-->
+    <session-config>
+        <session-timeout>45</session-timeout>
+    </session-config>
+    
+	<!-- 
+	<servlet>
     	<servlet-name>MessageServlet</servlet-name>
     	<servlet-class>com.wechat.message.servlet.MessageServlet</servlet-class>
     </servlet>
@@ -26,7 +69,6 @@
 		<servlet-name>MessageServlet</servlet-name>
 		<url-pattern>/wechatClient</url-pattern>
 	</servlet-mapping>
-	
-	
+ 	-->	
 	
 </web-app>

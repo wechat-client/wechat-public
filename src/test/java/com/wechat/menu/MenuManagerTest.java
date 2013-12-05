@@ -7,10 +7,10 @@ import net.sf.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Test;
 
-import com.wechat.menu.manager.MenuManager;
+import com.wechat.menu.controller.MenuController;
 import com.wechat.menu.pojo.Menu;
 import com.wechat.menu.pojo.TokenPojo;
-import com.wechat.wechatutil.MainUtil;
+import com.wechat.common.utils.ConnectWechatUtil;
 
 
 public class MenuManagerTest {
