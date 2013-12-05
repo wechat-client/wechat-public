@@ -3,13 +3,16 @@
     xmlns:context="http://www.springframework.org/schema/context"
     xmlns:mvc="http://www.springframework.org/schema/mvc"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:util="http://www.springframework.org/schema/util"
     xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/util 
+		http://www.springframework.org/schema/util/spring-util.xsd">
 	
 	<mvc:annotation-driven />
 	
@@ -56,14 +59,15 @@
 		 <property name="messageConverters">
 			 <util:list id="beanList">
 	        	<ref bean="stringHttpMessageConverter"/>
-	        	<ref bean="marshallingHttpMessageConverter"/>
 	      	 </util:list>
 		 </property>  
-		 
 		 <property name="webBindingInitializer">
 	        <bean class="org.springframework.samples.petclinic.web.ClinicBindingInitializer" />
 	     </property>
-		 -->
+		-->
 	</bean>
-	
-</beans>
+	<!-- 
+	<bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter"> 
+	</bean> 
+	 -->	
+	</beans>
