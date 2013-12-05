@@ -12,11 +12,10 @@ import com.wechat.menu.pojo.Menu;
 import com.wechat.menu.pojo.TokenPojo;
 import com.wechat.common.utils.ConnectWechatUtil;
 
-
 public class MenuManagerTest {
 	
 	
-	  // 第三方用户唯一凭证  
+	// 第三方用户唯一凭证  
     String appId = "wx136d668a243902c0";  
     // 第三方用户唯一凭证密钥  
     String appSecret = "1d557540724ec17578433e3040ebacf3";  

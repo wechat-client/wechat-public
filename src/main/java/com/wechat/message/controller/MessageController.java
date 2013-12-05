@@ -19,10 +19,8 @@ public class MessageController {
         if (SignUtil.checkSignature(signature, timestamp, nonce)) {  
            return echostr;
         }
-        
         return "error";
         
-     
 	}
 	
 }
