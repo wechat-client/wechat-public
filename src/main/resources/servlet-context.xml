@@ -50,7 +50,7 @@
   	</bean>
   	
   	<!-- 帮助 DispatcherServlet 调用一个 handler 映射到一个 request 尽管 handler事实上已经调用了-->
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		 <property name="cacheSeconds" value="0" />
 		 <!-- 
 		 <property name="messageConverters">
