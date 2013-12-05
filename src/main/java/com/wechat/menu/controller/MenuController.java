@@ -19,12 +19,12 @@ public class MenuController {
 	@Autowired
 	MenuService  ms;
 
-	@RequestMapping("/createMenu")
+	@RequestMapping("/menu/createMenu")
 	public String InitMenuController(){
 		return "createMenu";
 	}
 	
-	@RequestMapping("/menuSucess")
+	@RequestMapping("/menu/menuSucess")
 	public String saveMenuController(Menu menu){
 		 String  accessToken  = "";
 		 int result = 0;  
