@@ -14,4 +14,11 @@ public class TextMessage extends Message{
         Content = content;  
     }  
     
+    @Override
+    public String toString() {
+    	
+    	return "{\"touser\":\""+this.getToUserName()+"\",\"msgtype\":\""+this.getMsgType()+"\",\"text\":{\"content\":\""+this.getContent()+"\"}}";
+    
+    }
+    
 }

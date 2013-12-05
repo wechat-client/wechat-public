@@ -43,4 +43,6 @@ public class Article {
         Url = url;  
     } 
 
+    
+    
 }
