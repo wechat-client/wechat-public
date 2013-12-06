@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.wechat.common.utils.MessageUtil;
 import com.wechat.common.utils.SignUtil;
-import com.wechat.message.pojo.TextMessage;
+import com.wechat.message.pojo.text.TextMessage;
 
 
 @Controller
@@ -42,11 +42,11 @@ public class MessageController {
             String msgType = requestMap.get("MsgType");  
             
             // 回复文本消息  
-            textMessage.setToUserName(fromUserName);  
-            textMessage.setFromUserName(toUserName);  
-            textMessage.setCreateTime(new Date().getTime());  
-            textMessage.setMsgType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);  
-            textMessage.setFuncFlag(0);  
+            textMessage.setMessageToUser(fromUserName);  
+            textMessage.setMessageFromUser(toUserName);  
+            textMessage.setMessageCreateTime(String.valueOf(new Date().getTime()));  
+            textMessage.setMessageType(MessageUtil.RESP_MESSAGE_TYPE_TEXT);  
+            
             
             if(msgType.equals(MessageUtil.REQ_MESSAGE_TYPE_EVENT)){
             	 // 消息类型  
