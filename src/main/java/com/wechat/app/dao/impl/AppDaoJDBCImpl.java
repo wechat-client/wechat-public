@@ -25,7 +25,7 @@ public class AppDaoJDBCImpl implements IAppDao{
 		
 		
 		
-		String sql = "select app_id,app_key,app_secret "
+		String sql = "select wa.app_id,wa.app_key,wa.app_secret "
 				+ "from wechat_user wu LEFT JOIN wechat_user_app wua ON wu.user_id = wua.user_id "
 				+ "LEFT JOIN wechat_app wa ON wua.app_id = wa.app_id "
 				+ "WHERE wu.user_id = ?";
@@ -37,7 +37,7 @@ public class AppDaoJDBCImpl implements IAppDao{
 					App app = new App();
 					app.setAppId(rs.getInt("app_id"));
 					app.setAppKey(rs.getString("app_key"));
-					app.setAppKey(rs.getString("app_secret"));
+					app.setAppSecret(rs.getString("app_secret"));
 					return app;
 			}
 			
