@@ -21,7 +21,7 @@ public class MenuDao implements IMenuDao{
 	public List<Menu> getMenuByUser(Integer userID, Integer appID) {
 		// TODO Auto-generated method stub
 		List<Menu> menus = new ArrayList<Menu>(); 
-		String sql = "select menu_id, menu_name, menu_type, menu_url, parent_id from wechat_menu where app_id = ? and user_id = ?";
+		String sql = "select menu_id, menu_name, menu_type, menu_url, menu_key_code,parent_id from wechat_menu where app_id = ? and user_id = ?";
 		try{
 			menus = jdbcTemplate.query(sql,
 					 new Object []{userID,appID},
@@ -34,6 +34,7 @@ public class MenuDao implements IMenuDao{
 					menu.setType(rs.getString("menu_type"));
 					menu.setUrl(rs.getString("menu_url"));
 					menu.setParentId(rs.getInt("parent_id"));
+					menu.setKey(rs.getString("menu_key_code"));
 					return menu;
 					}
 				}

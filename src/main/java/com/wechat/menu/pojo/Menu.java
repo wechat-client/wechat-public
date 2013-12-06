@@ -2,6 +2,8 @@ package com.wechat.menu.pojo;
 
 import java.util.List;
 
+import com.wechat.common.utils.json.JSONOmitField;
+
 /**
  * 
  * @author sence
@@ -10,7 +12,7 @@ import java.util.List;
 public class Menu {
 	
 	private Integer menuId;
-
+	@JSONOmitField
 	private Integer parentId;
 
 

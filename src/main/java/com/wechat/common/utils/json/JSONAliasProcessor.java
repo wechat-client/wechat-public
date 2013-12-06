@@ -1,11 +1,9 @@
 package com.wechat.common.utils.json;
 
-import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
-import net.sf.json.processors.JsonBeanProcessor;
 import net.sf.json.processors.JsonValueProcessor;
 
-public class JSONAliasProcessor implements JsonBeanProcessor{
+public class JSONAliasProcessor implements JsonValueProcessor{
 
 	
 	private String fieldAlias;
@@ -24,22 +22,14 @@ public class JSONAliasProcessor implements JsonBeanProcessor{
 	}
 
 	@Override
-	public JSONObject processBean(Object arg0, JsonConfig arg1) {
-		
+	public Object processArrayValue(Object value, JsonConfig config) {
 		return null;
 	}
 
-	private Object process(Object value, JsonConfig jsonConfig) {
-		if (value == null) {
-            return null;
-        }
-        String ret = null;
-        
-        reset();                             // 处理后重置，以免影响其他 Integer 属性
-
-        return ret;
-		
-		
+	@Override
+	public Object processObjectValue(String key, Object value, JsonConfig config) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	
