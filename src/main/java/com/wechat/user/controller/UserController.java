@@ -29,7 +29,7 @@ public class UserController {
 	public String login(User user,HttpServletRequest request){
 		User loginUser = userService.userLogin(user);
 		if(loginUser!=null) {
-			
+			request.getSession().setAttribute("User", loginUser);
 			List<App> apps = appService.getUserApps(loginUser.getUserId());
 			if(apps.size()>0){
 				TokenPojo tp = ConnectWechatUtil.getAccessToken(apps.get(0).getAppKey(), apps.get(0).getAppSecret());
@@ -45,3 +45,4 @@ public class UserController {
 	}
 	
 }
+

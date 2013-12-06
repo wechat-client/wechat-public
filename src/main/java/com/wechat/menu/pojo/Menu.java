@@ -1,5 +1,7 @@
 package com.wechat.menu.pojo;
 
+import java.util.List;
+
 /**
  * 
  * @author sence
@@ -7,12 +9,19 @@ package com.wechat.menu.pojo;
  */
 public class Menu {
 	
+	private Integer menuId;
+
+	private Integer parentId;
+
+
 	private String name;
 	private String type;
 	private String url;
 	private String key;
+	private Integer appId;
+	private Integer userId;
 	
-	private Menu[] sub_button;
+	private List<Menu> sub_button;
 	
 	
 	public Menu() {
@@ -44,12 +53,49 @@ public class Menu {
 	public void setKey(String key) {
 		this.key = key;
 	}
-	public Menu[] getSub_button() {
+	public List<Menu> getSub_button() {
 		return sub_button;
 	}
-	public void setSub_button(Menu[] sub_button) {
+	public void setSub_button(List<Menu> sub_button) {
 		this.sub_button = sub_button;
 	}
-	
+
+
+	public Integer getAppId() {
+		return appId;
+	}
+
+
+	public void setAppId(Integer appId) {
+		this.appId = appId;
+	}
+
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	public Integer getMenuId() {
+		return menuId;
+	}
+
+
+	public void setMenuId(Integer menuId) {
+		this.menuId = menuId;
+	}
+
+
+	public Integer getParentId() {
+		return parentId;
+	}
+
+
+	public void setParentId(Integer parentId) {
+		this.parentId = parentId;
+	}
 
 }
