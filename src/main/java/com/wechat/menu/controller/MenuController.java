@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 
@@ -18,7 +19,6 @@ import com.wechat.menu.pojo.Menu;
 import com.wechat.menu.pojo.TokenPojo;
 import com.wechat.menu.service.MenuService;
 import com.wechat.user.pojo.User;
-import com.wechat.app.*;
 import com.wechat.app.pojo.App;
 import com.wechat.app.service.IAppService;
 
@@ -53,11 +53,14 @@ public class MenuController {
 		  // 将菜单对象转换成json字符串  
         //String jsonMenu = JSONObject.fromObject(button).toString().trim();  
         JSONObject jsonMenu = new JSONObject();
+        JSONArray jsonArr = new JSONArray();  
         JsonConfig jc = new JsonConfig();
-//        jc.setExcludes(new String[]{"appId","menuId","parentId"});
+        jc.setExcludes(new String[]{"appId","menuId","parentId"});
 //       // jc.setJavaPropertyFilter(javaPropertyFilter);
 //        jsonMenu.fromObject(dbmenus, jc);
-        jsonMenu.put("button", dbmenus);     
+            
+        String jsonresult = jsonArr.fromObject(dbmenus, jc).toString();
+        jsonMenu.put("button", jsonresult); 
         // 调用接口创建菜单  
         JSONObject jsonObject = ConnectWechatUtil.httpRequest(url, "POST", jsonMenu.toString());  
         if (null != jsonObject) {  
