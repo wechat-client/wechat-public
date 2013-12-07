@@ -2,6 +2,7 @@ package com.wechat.menu.pojo;
 
 import java.util.List;
 
+import com.wechat.common.utils.json.JSONAlias;
 import com.wechat.common.utils.json.JSONOmitField;
 
 /**
@@ -11,6 +12,7 @@ import com.wechat.common.utils.json.JSONOmitField;
  */
 public class Menu {
 	
+	@JSONOmitField
 	private Integer menuId;
 	@JSONOmitField
 	private Integer parentId;
@@ -20,9 +22,11 @@ public class Menu {
 	private String type;
 	private String url;
 	private String key;
+	@JSONOmitField
 	private Integer appId;
+	@JSONOmitField
 	private Integer userId;
-	
+	@JSONAlias("subButton")
 	private List<Menu> sub_button;
 	
 	

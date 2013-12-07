@@ -1,16 +1,16 @@
 package com.wechat.common.utils.json;
 
-import net.sf.json.JsonConfig;
-import net.sf.json.processors.JsonValueProcessor;
+import net.sf.json.processors.PropertyNameProcessor;
 
-public class JSONAliasProcessor implements JsonValueProcessor{
+public class JSONAliasProcessor implements PropertyNameProcessor{
 
 	
 	private String fieldAlias;
-	
+	private String fieldName;
 	
 	private void reset(){
 		fieldAlias = null;
+		fieldName = null;
 	}
 	
 	public String getFieldAlias() {
@@ -20,18 +20,24 @@ public class JSONAliasProcessor implements JsonValueProcessor{
 	public void setFieldAlias(String fieldAlias) {
 		this.fieldAlias = fieldAlias;
 	}
+	
+	public String getFieldName() {
+		return fieldName;
+	}
 
-	@Override
-	public Object processArrayValue(Object value, JsonConfig config) {
-		return null;
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
 	}
 
 	@Override
-	public Object processObjectValue(String key, Object value, JsonConfig config) {
-		// TODO Auto-generated method stub
-		return null;
+	public String processPropertyName(Class clazz, String name) {
+		
+		if(name.equals(fieldName)) return fieldAlias;
+		return name;
+	
 	}
 
+	
 	
 	
 }
