@@ -20,6 +20,9 @@ import net.sf.json.JSONObject;
 
 public class ConnectWechatUtil {
 	
+	
+	public static final String APP_CONTEXT_URL = "219.239.42.70/wechat/";
+	
 	/** 
      * 发起https请求并获取结果 
      *  

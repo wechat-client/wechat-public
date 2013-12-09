@@ -8,13 +8,12 @@ import net.sf.json.util.PropertyFilter;
 
 public abstract class AbstaractFieldFilter implements PropertyFilter {
 
-	private JSONAliasProcessor processor;
+	
 	
 	private JsonConfig config;
 	
-	public AbstaractFieldFilter(JsonConfig config,JSONAliasProcessor processor){
+	public AbstaractFieldFilter(JsonConfig config){
 		this.config = config;
-		this.processor = processor;
 	}
 	
 	public abstract boolean apply(Field field);
@@ -53,14 +52,6 @@ public abstract class AbstaractFieldFilter implements PropertyFilter {
 		}
 		return field;
 		
-	}
-
-	public JSONAliasProcessor getProcessor() {
-		return processor;
-	}
-
-	public void setProcessor(JSONAliasProcessor processor) {
-		this.processor = processor;
 	}
 
 	public JsonConfig getConfig() {

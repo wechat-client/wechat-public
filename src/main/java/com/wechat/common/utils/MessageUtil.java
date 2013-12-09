@@ -48,7 +48,7 @@ public class MessageUtil {
      * 请求消息类型：文本 
      */  
     public static final String REQ_MESSAGE_TYPE_TEXT = "text";  
-  
+
     /** 
      * 请求消息类型：图片 
      */  
@@ -68,7 +68,12 @@ public class MessageUtil {
      * 请求消息类型：音频 
      */  
     public static final String REQ_MESSAGE_TYPE_VOICE = "voice";  
-  
+    
+    /**
+     * 请求消息类型：视频
+     */
+    public static final String REQ_MESSAGE_TYPE_VEDIO = "vedio";  
+    
     /** 
      * 请求消息类型：推送 
      */  
@@ -83,12 +88,18 @@ public class MessageUtil {
      * 事件类型：unsubscribe(取消订阅) 
      */  
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";  
-  
+    
+    /** 
+     * 事件类型：unsubscribe(取消订阅) 
+     */  
+    public static final String EVENT_TYPE_LOCATION = "LOCATION"; 
+    
     /** 
      * 事件类型：CLICK(自定义菜单点击事件) 
      */  
     public static final String EVENT_TYPE_CLICK = "CLICK";  
-  
+    
+   
     /** 
      * 解析微信发来的请求（XML） 
      *  
@@ -168,8 +179,8 @@ public class MessageUtil {
      * @return xml 
      */  
     public static String newsMessageToXml(ArticleMessage newsMessage) {  
-        xstream.alias("xml", newsMessage.getClass());  
-        xstream.alias("item", new Article().getClass());  
+        xstream.autodetectAnnotations(true);
+    	xstream.processAnnotations(ArticleMessage.class);
         return xstream.toXML(newsMessage);  
     }  
   

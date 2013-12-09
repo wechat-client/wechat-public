@@ -8,11 +8,6 @@ public class JSONAliasProcessor implements PropertyNameProcessor{
 	private String fieldAlias;
 	private String fieldName;
 	
-	private void reset(){
-		fieldAlias = null;
-		fieldName = null;
-	}
-	
 	public String getFieldAlias() {
 		return fieldAlias;
 	}
