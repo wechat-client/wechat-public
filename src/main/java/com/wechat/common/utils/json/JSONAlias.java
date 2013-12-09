@@ -12,6 +12,6 @@ public @interface JSONAlias {
 	/**
 	 * The name of the class or field alias.
 	 */
-	public String name();
+	public String value();
 
 }

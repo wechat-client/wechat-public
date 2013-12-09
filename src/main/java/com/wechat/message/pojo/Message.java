@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import com.wechat.common.utils.json.JSONAlias;
+import com.wechat.common.utils.json.JSONOmitField;
 
 public class Message implements Serializable{
 
@@ -12,15 +14,15 @@ public class Message implements Serializable{
 	 */
 	private static final long serialVersionUID = 4682154958741147517L;
 	//主键，发送消息时忽略
-	@XStreamOmitField private Integer messageId;
+	@JSONOmitField @XStreamOmitField private Integer messageId;
 	//设置发送被动响应消息时别称
-	@XStreamAlias("ToUserName") private String messageToUser;
+	@JSONAlias("touser") @XStreamAlias("ToUserName") private String messageToUser;
 	//设置发送被动响应消息时别称
-	@XStreamAlias("FromUserName") private String messageFromUser;
+	@JSONOmitField @XStreamAlias("FromUserName") private String messageFromUser;
 	//设置发送被动响应消息时别称
-	@XStreamAlias("MsgType") private String messageType;
+	@JSONAlias("msgtype") @XStreamAlias("MsgType") private String messageType;
 	//设置发送被动响应消息时别称
-	@XStreamAlias("CreateTime") private String messageCreateTime;
+	@JSONOmitField @XStreamAlias("CreateTime") private String messageCreateTime;
 
 	public Message() {
 	
