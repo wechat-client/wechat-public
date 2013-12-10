@@ -72,6 +72,8 @@ String url =MenuUtil. MENU_CREATE_URL.replace("ACCESS_TOKEN", accessToken.getTok
 //       // jc.setJavaPropertyFilter(javaPropertyFilter);
 //        jsonMenu.fromObject(dbmenus, jc);
             
+
+
         String jsonresult = jsonArr.fromObject(dbmenus, jc).toString();
         jsonMenu.put("button", jsonresult); 
         // 调用接口创建菜单  
