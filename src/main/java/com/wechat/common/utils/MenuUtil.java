@@ -17,7 +17,7 @@ public class MenuUtil {
 	
 	// 菜单创建（POST） 限100（次/天）  
     public static final String MENU_CREATE_URL = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN";  
-    // 菜单创建（POST） 限100（次/天）  
+    // 菜单删除（POST） 限100（次/天）  
     public static final String MENU_DELETE_URL = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=ACCESS_TOKEN";  
     
 	

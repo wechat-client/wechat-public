@@ -12,16 +12,20 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+import com.thoughtworks.xstream.MarshallingStrategy;
 import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.converters.ConverterLookup;
+import com.thoughtworks.xstream.converters.DataHolder;
 import com.thoughtworks.xstream.core.util.QuickWriter;
-import com.thoughtworks.xstream.io.HierarchicalStreamDriver;
+import com.thoughtworks.xstream.io.HierarchicalStreamReader;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
-import com.wechat.message.pojo.Article;
-import com.wechat.message.pojo.MusicMessage;
-import com.wechat.message.pojo.NewsMessage;
-import com.wechat.message.pojo.TextMessage;
+import com.thoughtworks.xstream.mapper.Mapper;
+import com.wechat.message.pojo.music.MusicMessage;
+import com.wechat.message.pojo.text.TextMessage;
+import com.wechat.message.pojo.article.Article;
+import com.wechat.message.pojo.article.ArticleMessage;
 
 public class MessageUtil {
 
@@ -44,7 +48,7 @@ public class MessageUtil {
      * 请求消息类型：文本 
      */  
     public static final String REQ_MESSAGE_TYPE_TEXT = "text";  
-  
+
     /** 
      * 请求消息类型：图片 
      */  
@@ -64,7 +68,12 @@ public class MessageUtil {
      * 请求消息类型：音频 
      */  
     public static final String REQ_MESSAGE_TYPE_VOICE = "voice";  
-  
+    
+    /**
+     * 请求消息类型：视频
+     */
+    public static final String REQ_MESSAGE_TYPE_VEDIO = "vedio";  
+    
     /** 
      * 请求消息类型：推送 
      */  
@@ -79,12 +88,18 @@ public class MessageUtil {
      * 事件类型：unsubscribe(取消订阅) 
      */  
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";  
-  
+    
+    /** 
+     * 事件类型：unsubscribe(取消订阅) 
+     */  
+    public static final String EVENT_TYPE_LOCATION = "LOCATION"; 
+    
     /** 
      * 事件类型：CLICK(自定义菜单点击事件) 
      */  
     public static final String EVENT_TYPE_CLICK = "CLICK";  
-  
+    
+   
     /** 
      * 解析微信发来的请求（XML） 
      *  
@@ -103,10 +118,10 @@ public class MessageUtil {
         SAXReader reader = new SAXReader();  
         Document document = reader.read(inputStream);  
         // 得到xml根元素  
-        Element root = document.getRootElement();  
+        Element root = document.getRootElement(); 
         // 得到根元素的所有子节点  
         List<Element> elementList = root.elements();  
-  
+        
         // 遍历所有子节点  
         for (Element e : elementList)  
             map.put(e.getName(), e.getText());  
@@ -137,6 +152,23 @@ public class MessageUtil {
      */  
     public static String musicMessageToXml(MusicMessage musicMessage) {  
         xstream.alias("xml", musicMessage.getClass());  
+        xstream.setMarshallingStrategy(new MarshallingStrategy() {
+			
+			@Override
+			public Object unmarshal(Object root, HierarchicalStreamReader reader,
+					DataHolder dataHolder, ConverterLookup converterLookup,
+					Mapper mapper) {
+				return null;
+			}
+			
+			@Override
+			public void marshal(HierarchicalStreamWriter writer, Object obj,
+					ConverterLookup converterLookup, Mapper mapper,
+					DataHolder dataHolder) {
+				
+				
+			}
+		});
         return xstream.toXML(musicMessage);  
     }  
   
@@ -146,9 +178,9 @@ public class MessageUtil {
      * @param newsMessage 图文消息对象 
      * @return xml 
      */  
-    public static String newsMessageToXml(NewsMessage newsMessage) {  
-        xstream.alias("xml", newsMessage.getClass());  
-        xstream.alias("item", new Article().getClass());  
+    public static String newsMessageToXml(ArticleMessage newsMessage) {  
+        xstream.autodetectAnnotations(true);
+    	xstream.processAnnotations(ArticleMessage.class);
         return xstream.toXML(newsMessage);  
     }  
   
@@ -164,7 +196,8 @@ public class MessageUtil {
                 boolean cdata = true;  
   
                 @SuppressWarnings("unchecked")  
-                public void startNode(String name, Class clazz) {  
+                public void startNode(String name, Class clazz) { 
+                
                     super.startNode(name, clazz);  
                 }  
   
