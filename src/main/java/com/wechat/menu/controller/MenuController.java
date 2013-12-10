@@ -7,6 +7,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
@@ -72,6 +73,8 @@ String url =MenuUtil. MENU_CREATE_URL.replace("ACCESS_TOKEN", accessToken.getTok
 //       // jc.setJavaPropertyFilter(javaPropertyFilter);
 //        jsonMenu.fromObject(dbmenus, jc);
             
+
+
         String jsonresult = jsonArr.fromObject(dbmenus, jc).toString();
         jsonMenu.put("button", jsonresult); 
         // 调用接口创建菜单  
