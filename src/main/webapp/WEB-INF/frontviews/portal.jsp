@@ -10,6 +10,11 @@
     <script src="${ctx}/scripts/metro/metro-*.js"></script>
     </head>
     <body class="metro">
+    
+    <div class="tile live" data-role="live-tile" data-effect="...">
+    		<div class="tile-content"><img alt="" src="${ctx}/image/yutou.jpg"></div>
+    		<div class="tile-content"><img alt="" src="${ctx}/image/wenjiu.jpg"></div>
+	</div>
  
     </body>
 </html>
