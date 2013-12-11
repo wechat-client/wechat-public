@@ -19,7 +19,15 @@ public class VoiceMessage extends Message{
 	public VoiceMessage() {
 
 	}
-
+	
+	public VoiceMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
+	}
+	
 	public Voice getVoice() {
 		return voice;
 	}

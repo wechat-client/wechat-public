@@ -22,8 +22,12 @@ import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
 import com.thoughtworks.xstream.mapper.Mapper;
+import com.wechat.message.pojo.Message;
+import com.wechat.message.pojo.image.ImageMessage;
 import com.wechat.message.pojo.music.MusicMessage;
 import com.wechat.message.pojo.text.TextMessage;
+import com.wechat.message.pojo.vedio.VedioMessage;
+import com.wechat.message.pojo.voice.VoiceMessage;
 import com.wechat.message.pojo.article.Article;
 import com.wechat.message.pojo.article.ArticleMessage;
 
@@ -139,51 +143,38 @@ public class MessageUtil {
      * @param textMessage 文本消息对象 
      * @return xml 
      */  
-    public static String textMessageToXml(TextMessage textMessage) {  
-        xstream.alias("xml", textMessage.getClass());  
-        return xstream.toXML(textMessage);  
+    public static String messageToXml(Message message) {  
+    	xstream.autodetectAnnotations(true);
+     	xstream.processAnnotations(TextMessage.class);
+        if(message instanceof TextMessage){
+        	TextMessage tm = (TextMessage)message;
+        	return xstream.toXML(tm);  
+        }
+        if(message instanceof MusicMessage){
+        	MusicMessage mm = (MusicMessage)message;
+        	return xstream.toXML(mm);  
+        }
+        if(message instanceof ArticleMessage){
+        	ArticleMessage am = (ArticleMessage)message;
+        	return xstream.toXML(am);  
+        }
+        if(message instanceof VedioMessage){
+        	VedioMessage vm = (VedioMessage)message;
+        	return xstream.toXML(vm);  
+        }
+        if(message instanceof VoiceMessage){
+        	VoiceMessage vm = (VoiceMessage)message;
+        	return xstream.toXML(vm);  
+        }
+        if(message instanceof ImageMessage){
+        	ImageMessage im = (ImageMessage)message;
+        	return xstream.toXML(im);  
+        }
+     	
+        return null;
+        
     }  
-  
-    /** 
-     * 音乐消息对象转换成xml 
-     *  
-     * @param musicMessage 音乐消息对象 
-     * @return xml 
-     */  
-    public static String musicMessageToXml(MusicMessage musicMessage) {  
-        xstream.alias("xml", musicMessage.getClass());  
-        xstream.setMarshallingStrategy(new MarshallingStrategy() {
-			
-			@Override
-			public Object unmarshal(Object root, HierarchicalStreamReader reader,
-					DataHolder dataHolder, ConverterLookup converterLookup,
-					Mapper mapper) {
-				return null;
-			}
-			
-			@Override
-			public void marshal(HierarchicalStreamWriter writer, Object obj,
-					ConverterLookup converterLookup, Mapper mapper,
-					DataHolder dataHolder) {
-				
-				
-			}
-		});
-        return xstream.toXML(musicMessage);  
-    }  
-  
-    /** 
-     * 图文消息对象转换成xml 
-     *  
-     * @param newsMessage 图文消息对象 
-     * @return xml 
-     */  
-    public static String newsMessageToXml(ArticleMessage newsMessage) {  
-        xstream.autodetectAnnotations(true);
-    	xstream.processAnnotations(ArticleMessage.class);
-        return xstream.toXML(newsMessage);  
-    }  
-  
+
     /** 
      * 扩展xstream，使其支持CDATA块 
      *  

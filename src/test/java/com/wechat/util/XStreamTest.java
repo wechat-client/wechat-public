@@ -15,6 +15,7 @@ import com.thoughtworks.xstream.core.util.QuickWriter;
 import com.thoughtworks.xstream.io.HierarchicalStreamWriter;
 import com.thoughtworks.xstream.io.xml.PrettyPrintWriter;
 import com.thoughtworks.xstream.io.xml.XppDriver;
+import com.wechat.message.pojo.Message;
 import com.wechat.message.pojo.article.Article;
 import com.wechat.message.pojo.article.ArticleMessage;
 import com.wechat.message.pojo.image.Image;

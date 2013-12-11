@@ -20,7 +20,15 @@ public class ArticleMessage extends Message{
     public ArticleMessage() {
 
     }
-
+    
+    public ArticleMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
+	}
+    
 	public int getArticleCount() {
 		return articleCount;
 	}

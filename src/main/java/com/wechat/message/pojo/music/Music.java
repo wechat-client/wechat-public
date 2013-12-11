@@ -25,10 +25,11 @@ public class Music implements Serializable {
 	//发送
 	@XStreamAlias("ThumbMediaId") private String thumbMediaId;
 	
+	@XStreamOmitField private Integer messageId;
+	
 	public Music() {
 
 	}
-	
 	public Integer getMusicId() {
 		return musicId;
 	}

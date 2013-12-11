@@ -17,7 +17,13 @@ public class ImageMessage extends Message{
 	public ImageMessage() {
 
 	}
-	
+	public ImageMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
+	}
 	
 	public Image getImage() {
 		return image;

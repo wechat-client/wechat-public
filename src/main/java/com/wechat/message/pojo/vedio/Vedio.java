@@ -14,7 +14,6 @@ public class Vedio implements Serializable{
 
 	//主键
 	@XStreamOmitField private Integer vedioId;
-	
 	//发送响应、接收消息
 	@XStreamAlias("MediaId") private String mediaId;
 	//发送响应
@@ -25,6 +24,8 @@ public class Vedio implements Serializable{
 	@XStreamOmitField private String thumbMediaId;
 	//接受消息
 	@XStreamOmitField private String msgId;
+	//外键
+	@XStreamOmitField private Integer messageId;
 	
 	public Vedio() {
 

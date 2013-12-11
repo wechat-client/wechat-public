@@ -17,6 +17,14 @@ public class MusicMessage extends Message{
 
 	}
 
+	public MusicMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
+	}
+	
 	public Music getMusic() {
 		return music;
 	}

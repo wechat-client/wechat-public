@@ -14,14 +14,22 @@ public class TextMessage extends Message{
 	private static final long serialVersionUID = 59132969153398350L;
 	//主键 转为XML时忽略此属性
 	@JSONOmitField @XStreamOmitField private Integer textMessageId;
-	//转为XML时忽略此属性
+	//转为XML时忽略此属性 
 	@JSONOmitField @XStreamOmitField private String msgId;
-	//转为XML时设置别称为Content
+	//转为XML时设置别称为Content 发送
 	@XStreamAlias("Content") private String content;
-	
+
 	
 	public TextMessage() {
 		
+	}
+	
+	public TextMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
 	}
 	
 	public Integer getTextMessageId() {

@@ -17,6 +17,13 @@ public class VedioMessage extends Message{
 
 	}
 	
+	public VedioMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
+	}
 
 	public Vedio getVedio() {
 		return vedio;

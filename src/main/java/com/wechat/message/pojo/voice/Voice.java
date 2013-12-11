@@ -14,16 +14,16 @@ public class Voice implements Serializable{
 
 	//主键
 	@XStreamOmitField private Integer voiceId;
-	
 	//发送被动消息、接收消息
 	@XStreamAlias("MeidaId") private String mediaId;
-	
 	//格式、接收消息
 	@XStreamOmitField private String format;
 	//接收消息
 	@XStreamOmitField private String msgId;
 	//语音识别结果
 	@XStreamOmitField private String recognition;
+	//外键
+	@XStreamOmitField private Integer messageId;
 	
 	public Voice() {
 		

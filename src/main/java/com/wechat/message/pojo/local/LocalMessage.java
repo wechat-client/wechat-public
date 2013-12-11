@@ -29,7 +29,13 @@ public class LocalMessage extends Message {
 	public LocalMessage() {
 
 	}
-	
+	public LocalMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
+	}
 	public Integer getLocalMessageId() {
 		return localMessageId;
 	}
@@ -66,6 +72,7 @@ public class LocalMessage extends Message {
 	public void setMsgId(String msgId) {
 		this.msgId = msgId;
 	}
+
 	
 	
 	

@@ -23,7 +23,7 @@ public class Message implements Serializable{
 	@JSONAlias("msgtype") @XStreamAlias("MsgType") private String messageType;
 	//设置发送被动响应消息时别称
 	@JSONOmitField @XStreamAlias("CreateTime") private String messageCreateTime;
-
+	
 	public Message() {
 	
 	}

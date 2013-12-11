@@ -9,15 +9,23 @@ public class HrefMessage extends Message {
 	 */
 	private static final long serialVersionUID = 3355820768198783968L;
 	
+	private Integer hrefId;
 	private String hrefTitle;
 	private String hrefDescription;
 	private String hrefUrl;
 	private String msgId;
+
 	
 	public HrefMessage() {
 
 	}
-
+	public HrefMessage(Message msg) {
+		setMessageId(msg.getMessageId());
+		setMessageType(msg.getMessageType());
+		setMessageCreateTime(msg.getMessageCreateTime());
+		setMessageFromUser(msg.getMessageFromUser());
+		setMessageToUser(msg.getMessageToUser());
+	}
 	public String getHrefTitle() {
 		return hrefTitle;
 	}
@@ -49,7 +57,13 @@ public class HrefMessage extends Message {
 	public void setMsgId(String msgId) {
 		this.msgId = msgId;
 	}
-	
-	
-	
+
+	public Integer getHrefId() {
+		return hrefId;
+	}
+
+	public void setHrefId(Integer hrefId) {
+		this.hrefId = hrefId;
+	}
+
 }
