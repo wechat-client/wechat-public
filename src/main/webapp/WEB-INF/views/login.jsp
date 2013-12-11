@@ -15,9 +15,6 @@
     <!-- Bootstrap core CSS -->
     <link href="${ctx}/css/bootstrap.css" rel="stylesheet">
 
-    <!-- Custom styles for this template -->
-    <link href="${ctx }/css/signin.css" rel="stylesheet">
-
   </head>
 
   <body>
