@@ -7,7 +7,6 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
@@ -92,9 +91,6 @@ String url =MenuUtil. MENU_CREATE_URL.replace("ACCESS_TOKEN", accessToken.getTok
         //ms.createMenu(menus);
         	return "menuSucess";
         }
-
-
-}
-
+	}
 }
 

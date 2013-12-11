@@ -29,20 +29,20 @@ public class UserController {
 	public String login(User user,HttpServletRequest request){
 		User loginUser = userService.userLogin(user);
 		if(loginUser!=null) {
-			request.getSession().setAttribute("User", loginUser);
-			List<App> apps = appService.getUserApps(loginUser.getUserId());
-			if(apps.size()>0){
-				TokenPojo tp = ConnectWechatUtil.getAccessToken(apps.get(0).getAppKey(), apps.get(0).getAppSecret());
-				request.getSession().setAttribute("accessToken", tp.getToken());
-				return "main";
+			if(loginUser.getUserType().equals("2")){
+				return "frontviews/portal";
+			}else{
+				request.getSession().setAttribute("User", loginUser);
+				List<App> apps = appService.getUserApps(loginUser.getUserId());
+				if(apps.size()>0){
+					TokenPojo tp = ConnectWechatUtil.getAccessToken(apps.get(0).getAppKey(), apps.get(0).getAppSecret());
+					request.getSession().setAttribute("accessToken", tp.getToken());
+					return "main";
+				}
+				return "no-app";
 			}
-			return "no-app";
-			
 		}
-		
 		return "redirect:/commons/error";
-		
 	}
-	
 }
 

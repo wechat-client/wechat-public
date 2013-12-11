@@ -13,6 +13,7 @@ public class User implements Serializable{
 	private String userPassword;
 	private String userLoginName;
 	private String userTrueName;
+	private String userType;
 	public Integer getUserId() {
 		return userId;
 	}
@@ -36,6 +37,12 @@ public class User implements Serializable{
 	}
 	public void setUserTrueName(String userTrueName) {
 		this.userTrueName = userTrueName;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	
 	

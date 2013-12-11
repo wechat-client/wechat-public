@@ -29,7 +29,7 @@ public class UserDaoJDBCImpl implements IUserDao{
 		
 		User user =null;
 		try {
-			user = jdbcTemplate.queryForObject("select user_id,user_login_name,user_password from wechat_user where user_login_name = ?", 
+			user = jdbcTemplate.queryForObject("select user_id,user_login_name,user_password,user_type from wechat_user where user_login_name = ?", 
 				new Object[]{userName},
 				new RowMapper<User>(){
 					public User mapRow(ResultSet rs, int rowNum)
@@ -38,6 +38,7 @@ public class UserDaoJDBCImpl implements IUserDao{
 						user.setUserLoginName(rs.getString("user_login_name"));
 						user.setUserId(rs.getInt("user_id"));
 						user.setUserPassword(rs.getString("user_password"));
+						user.setUserType(rs.getString("user_type"));
 						return user;
 					}
 				}
