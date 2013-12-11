@@ -5,11 +5,12 @@
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link href="${ctx}/css/bootstrap.css" rel="stylesheet">
-          <script src="${ctx}/scripts/jquery-1.10.2.min.js"></script>
+     <link href="${ctx}/css/metro-bootstrap.css" rel="stylesheet">
+     <script src="${ctx}/scripts/jquery-1.10.2.min.js"></script>
      <script src="${ctx}/scripts/bootstrap.min.js"></script>
     </head>
     <body>
-    	<div class="container">
+    	<div class="container-fluid">
     		<div class="row" style="margin-bottom:10px">
   				<div class="col-xs-12 col-md-12 ">
     				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -28,7 +29,7 @@
 					      </div>
 					    </div>
 					    <div class="item">
-					      <img src="${ctx}/image/wj1.jpeg" alt="...">
+					      <img src="${ctx}/image/food.jpg" alt="...">
 					      <div class="carousel-caption">
 					      </div>
 					    </div>
@@ -51,12 +52,16 @@
 			</div>
 			
     		<div class="row" style="margin-bottom:10px">
-      					<div class="col-xs-6 col-md-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive"></a></div>
-      					<div class="col-xs-6 col-md-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive"></a></div>
+				 <div class="col-sm-3 col-md-3 col-xs-3 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+				 <div class="col-sm-3 col-md-3 col-xs-3 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+			</div>
+    		<div class="row" style="margin-bottom:10px">
+      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
     		</div>
-    		<div class="row">
-      					<div class="col-xs-6 col-md-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive"></a></div>
-      					<div class="col-xs-6 col-md-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive"></a></div>
+    		<div class="row" style="margin-bottom:10px">
+      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
     		</div>
   		</div>
     </body>
