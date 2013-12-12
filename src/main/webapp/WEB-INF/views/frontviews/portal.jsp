@@ -52,8 +52,8 @@
 			</div>
 			
     		<div class="row" style="margin-bottom:10px">
-				 <div class="col-sm-3 col-md-3 col-xs-3 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
-				 <div class="col-sm-3 col-md-3 col-xs-3 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+				 <div class="col-sm-6 col-md-6 col-xs-6 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+				 <div class="col-sm-6 col-md-6 col-xs-6 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
 			</div>
     		<div class="row" style="margin-bottom:10px">
       					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
