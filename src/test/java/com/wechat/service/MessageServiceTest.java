@@ -55,7 +55,8 @@ public class MessageServiceTest {
 		org.junit.Assert.assertNotNull(messageService);
 	}
 	
-	@Test
+	
+	/*@Test
 	public void testTextMessageSave() throws WechatEcxeption{
 		TextMessage textMessage = new TextMessage();
 		//要注意null值所对应的属性，是不转化为xml里面的标签的
@@ -96,4 +97,4 @@ public class MessageServiceTest {
 //	}
 	
 
-}
+*/}

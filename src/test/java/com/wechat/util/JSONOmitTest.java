@@ -89,7 +89,7 @@ public class JSONOmitTest {
 		String json = aot.toJSONString(tmenus);
 		JSONObject jo = new JSONObject();
 		jo.put("button", json);
-		System.out.println(jo.toString());
+		//System.out.println(jo.toString());
 	}
 	
 	@Test
@@ -106,7 +106,7 @@ public class JSONOmitTest {
 		textMessage.setTextMessageId(234);
 		
 		AnnotationObjectToJSON aot = new AnnotationObjectToJSON(TextMessage.class);
-		System.out.println(aot.toJSONString(textMessage));
+		//System.out.println(aot.toJSONString(textMessage));
 	}
 	
 	@Test
@@ -125,7 +125,7 @@ public class JSONOmitTest {
 		im.setImage(image);
 		
 		AnnotationObjectToJSON aot = new AnnotationObjectToJSON(new Class[]{Image.class,ImageMessage.class});
-		System.out.println(aot.toJSONString(im));
+		//System.out.println(aot.toJSONString(im));
 	}
 	
 }

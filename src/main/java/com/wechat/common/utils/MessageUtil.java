@@ -145,28 +145,33 @@ public class MessageUtil {
      */  
     public static String messageToXml(Message message) {  
     	xstream.autodetectAnnotations(true);
-     	xstream.processAnnotations(TextMessage.class);
         if(message instanceof TextMessage){
+        	xstream.processAnnotations(TextMessage.class);
         	TextMessage tm = (TextMessage)message;
         	return xstream.toXML(tm);  
         }
         if(message instanceof MusicMessage){
+        	xstream.processAnnotations(MusicMessage.class);
         	MusicMessage mm = (MusicMessage)message;
         	return xstream.toXML(mm);  
         }
         if(message instanceof ArticleMessage){
+        	xstream.processAnnotations(ArticleMessage.class);
         	ArticleMessage am = (ArticleMessage)message;
         	return xstream.toXML(am);  
         }
         if(message instanceof VedioMessage){
+        	xstream.processAnnotations(VedioMessage.class);
         	VedioMessage vm = (VedioMessage)message;
         	return xstream.toXML(vm);  
         }
         if(message instanceof VoiceMessage){
+        	xstream.processAnnotations(VoiceMessage.class);
         	VoiceMessage vm = (VoiceMessage)message;
         	return xstream.toXML(vm);  
         }
         if(message instanceof ImageMessage){
+        	xstream.processAnnotations(ImageMessage.class);
         	ImageMessage im = (ImageMessage)message;
         	return xstream.toXML(im);  
         }
