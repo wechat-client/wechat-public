@@ -10,7 +10,7 @@
      <script src="${ctx}/scripts/bootstrap.min.js"></script>
     </head>
     <body>
-    	<div class="container-fluid">
+    	<div class="container">
     		<div class="row" style="margin-bottom:10px">
   				<div class="col-xs-12 col-md-12 ">
     				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -28,16 +28,6 @@
 					      <div class="carousel-caption">
 					      </div>
 					    </div>
-					    <div class="item">
-					      <img src="${ctx}/image/food.jpg" alt="...">
-					      <div class="carousel-caption">
-					      </div>
-					    </div>
-					    <div class="item">
-					      <img src="${ctx}/image/wj1.jpeg" alt="...">
-					      <div class="carousel-caption">
-					      </div>
-					    </div>
 					  </div>
 
 				 	 <!-- Controls -->
@@ -50,20 +40,38 @@
 					</div>		
   				</div>
 			</div>
+
+<!-- first row -->			
+<div class="row" style="margin-bottom:10px">
+<div class="col-sm-3 col-md-3 col-xs-3"><div class="thumbnail tile tile-teal"><a href="#" ><h1>微商城</h1></a></div>
+</div>
+
+<div class="col-sm-6 col-md-6 col-xs-3"><div class="thumbnail tile tile-double tile-orange"><a href="#" ><h1 class="tile-text">非姐养生</h1></a></div>
+</div>
+</div>
+
+<!-- second row -->
+<div class="row" style="margin-bottom:10px">
+<div class="col-sm-6 col-md-6"><div class="thumbnail tile tile-double tile-orange"><a href="#" ><h1 class="tile-text"></h1></a></div>
+</div>
+<div class="col-sm-6 col-md-3"><div class="thumbnail tile tile-teal"><a href="#" ><h1>微商城</h1></a></div>
+</div>
+<div class="col-sm-6 col-md-3 "><div class="thumbnail tile"><a href="#" ><img src="docs/twittertile.png"><h2>Tweet</h2></a></div>
+</div>
+</div>			
+			<!--  
 			
     		<div class="row" style="margin-bottom:10px">
-				 <div class="col-sm-6 col-md-6 col-xs-6 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
-				 <div class="col-sm-6 col-md-6 col-xs-6 "><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+				 <div class="col-sm-4 col-md-4 col-xs-4 "><a href="#" class="btn btn-primary btn-lg btn-block active" role="button">Primary link</a></div>
+				 <div class="col-sm-8 col-md-8 col-xs-8 "><a href="#" class="btn btn-primary btn-lg btn-block active" role="button">Primary link</a></div>
 			</div>
     		<div class="row" style="margin-bottom:10px">
-      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
-      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
-    		</div>
-    		<div class="row" style="margin-bottom:10px">
-      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
-      					<div class="col-xs-6 col-md-6 col-xs-6"><a href="www.sina.com.cn"><img src="${ctx}/image/food.jpg" alt="..." class="img-responsive img-rounded"></a></div>
+      					<div class="col-sm-8 col-md-8 col-xs-8"><a href="#" class="btn btn-primary btn-lg btn-block active" role="button">Primary link</a></div>
+      					<div class="col-sm-4 col-md-4 col-xs-4"><a href="#" class="btn btn-primary btn-lg btn-block active" role="button">Primary link</a></div>
     		</div>
   		</div>
+			-->
+			</div>
     </body>
  
 </html>
