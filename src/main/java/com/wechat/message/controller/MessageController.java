@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +28,8 @@ import com.wechat.message.service.IMessageService;
 
 @Controller
 public class MessageController {
+	
+	Logger logger = LoggerFactory.getLogger(MessageController.class);
 	
 	@Resource(name="messageService")
 	private IMessageService messageService;
@@ -79,8 +83,10 @@ public class MessageController {
             	// 消息类型  
                 String eventType = requestMap.get("Event");
                 //订阅类型 退订类型不响应
-                if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {  
-                	return processSubscribeRequest(msgType,fromUserName,toUserName);
+                if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
+                	String subscribe = processSubscribeRequest(msgType,fromUserName,toUserName);
+                	logger.info("subscribe:"+subscribe);
+                	return subscribe;
                 }
                 //地理位置事件
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {  
@@ -184,6 +190,7 @@ public class MessageController {
 		
 		return MessageUtil.messageToXml(newsMessage);
 	}
+
 	
 }
 

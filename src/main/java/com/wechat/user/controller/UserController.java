@@ -44,5 +44,12 @@ public class UserController {
 		}
 		return "redirect:/commons/error";
 	}
+	
+	@RequestMapping("/weportal")
+	public String portalView(User user,HttpServletRequest request){
+		
+		return "frontviews/portal";
+			
+	}
 }
 
