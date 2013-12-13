@@ -118,7 +118,7 @@ public class XStreamTest {
 		xstream.autodetectAnnotations(true);
 		
 		String xml = xstream.toXML(am);
-		System.out.println(xml);
+		//System.out.println(xml);
 	}
 	
 	@Test

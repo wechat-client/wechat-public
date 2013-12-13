@@ -196,7 +196,7 @@ public class MessageDaoJDBCImpl implements IMessageDao {
 	 * (non-Javadoc)
 	 * @see com.wechat.message.dao.IMessageDao#loadMessageByMenu(java.lang.Integer)
 	 */
-	public Message loadMessageByMenu(String menuKeyCode) {
+	public Message loadMessageByMenuCode(String menuKeyCode) {
 		String sql="select wm.message_id,wm.message_create_time,wm.message_type,wm.message_from_user,wm.message_to_user from wechat_message wm left join wechat_menu_message wmm ON wm.message_id = wmm.message_id where wmm.menu_key_code = ? ";
 
 		Message msg = jdbcTemplate.queryForObject(sql, new Object[]{menuKeyCode},new RowMapper<Message>(){
@@ -403,6 +403,79 @@ public class MessageDaoJDBCImpl implements IMessageDao {
 				return tm;
 			}
 		});
+	}
+	
+	@Override
+	public Message loadMessageByEventCode(String eventCode) {
+
+		String sql="select wm.message_id,wm.message_create_time,wm.message_type,wm.message_from_user,wm.message_to_user "
+				+ "from wechat_message wm "
+				+ "left join wechat_event_message wem ON wm.message_id = wem.message_id "
+				+ "where wem.event_code = ? ";
+
+		Message msg = jdbcTemplate.queryForObject(sql, new Object[]{eventCode},new RowMapper<Message>(){
+			public Message mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Message m = new Message();
+				m.setMessageType(rs.getString("message_type"));
+				m.setMessageId(rs.getInt("message_id"));
+				m.setMessageCreateTime(rs.getString("message_create_time"));
+				m.setMessageFromUser(rs.getString("message_from_user"));
+				m.setMessageToUser(rs.getString("message_to_user"));
+				return m;
+			}
+			
+		});
+		if(msg==null) return null;
+		//按照type来加载剩下的属性
+		if(MessageUtil.REQ_MESSAGE_TYPE_TEXT.equals(msg.getMessageType())){
+			TextMessage tm = new TextMessage(msg);
+			//加载文本消息
+			loadTextMessage(tm);
+			//返回
+			return tm;
+		}
+		if(MessageUtil.REQ_MESSAGE_TYPE_LINK.equals(msg.getMessageType())){
+			HrefMessage hm = new HrefMessage(msg);
+			//加载链接消息
+			loadHrefMessage(hm);
+			return hm;
+		}
+		if(MessageUtil.REQ_MESSAGE_TYPE_IMAGE.equals(msg.getMessageType())){
+			ImageMessage im = new ImageMessage(msg);
+			//加载图片消息
+			loadImageMessage(im);
+			return im;
+		}
+		if(MessageUtil.REQ_MESSAGE_TYPE_LOCATION.equals(msg.getMessageType())){
+			LocalMessage lm = new LocalMessage(msg);
+			//加载地理位置消息
+		    loadLocalMessage(lm);
+		    return lm;
+		}
+		if(MessageUtil.REQ_MESSAGE_TYPE_VEDIO.equals(msg.getMessageType())){
+			VedioMessage vm = new VedioMessage(msg);
+			//加载视频消息
+			loadVedioMessage(vm);
+			return vm;
+		}
+		if(MessageUtil.REQ_MESSAGE_TYPE_VOICE.equals(msg.getMessageType())){
+			VoiceMessage vm = new VoiceMessage(msg);
+			//加载语音消息
+			loadVoiceMessage(vm);
+			return vm;
+		}
+		if(MessageUtil.RESP_MESSAGE_TYPE_MUSIC.equals(msg.getMessageType())){
+			MusicMessage mm = new MusicMessage(msg);
+			//加载音乐消息
+			loadMusicMessage(mm);
+			return mm;
+		}
+		if(MessageUtil.RESP_MESSAGE_TYPE_NEWS.equals(msg.getMessageType())){
+			ArticleMessage am = new ArticleMessage(msg);
+			//加载图文消息
+			return loadNewsMessage(am);
+		}
+		return null;
 	}
 
 }

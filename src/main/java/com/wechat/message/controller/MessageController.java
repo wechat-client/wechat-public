@@ -45,13 +45,16 @@ public class MessageController {
 	//设置响应的编码
 	@RequestMapping(value="/wechatClient",method=RequestMethod.POST,produces = "text/plain;charset=UTF-8")
 	public @ResponseBody String responseWechatPushInfo(HttpServletRequest request){
-        try {
+		Message message = null;
+		String fromUserName = null;
+		String toUserName = null;
+		try {
         	// xml请求解析  
 			Map<String, String> requestMap = MessageUtil.parseXml(request);
 			// 发送方帐号（open_id）  
-            String fromUserName = requestMap.get("FromUserName");  
+            fromUserName = requestMap.get("FromUserName");  
             // 公众帐号  
-            String toUserName = requestMap.get("ToUserName");  
+            toUserName = requestMap.get("ToUserName");  
             // 消息类型  
             String msgType = requestMap.get("MsgType");  
             //文本类型
@@ -84,36 +87,56 @@ public class MessageController {
                 String eventType = requestMap.get("Event");
                 //订阅类型 退订类型不响应
                 if (eventType.equals(MessageUtil.EVENT_TYPE_SUBSCRIBE)) {
-                	String subscribe = processSubscribeRequest(msgType,fromUserName,toUserName);
-                	logger.info("subscribe:"+subscribe);
-                	return subscribe;
-                }
-                //地理位置事件
-                else if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {  
+                	String ticket = requestMap.get("Ticket");
+                	//1、是通过扫描来关注的
+                	if(ticket!=null){
+                		message = messageService.findMessageByEvent(MessageUtil.EVENT_TYPE_SCAN_SUBSCRIBE);
+                	}
+                	//2、不是通过扫描或者没配置扫描关注
+                	if(message==null){
+                		message = messageService.findMessageByEvent(MessageUtil.EVENT_TYPE_SUBSCRIBE);
+                	}
                 	
+                }
+                //扫描二维码
+                if (eventType.equals(MessageUtil.EVENT_TYPE_SCAN)) {
+                	message = messageService.findMessageByEvent(MessageUtil.EVENT_TYPE_SCAN);
+                }
+                //退订
+                if (eventType.equals(MessageUtil.EVENT_TYPE_UNSUBSCRIBE)) {
+                	//默认不响应
+                }
+                
+                //地理位置事件
+                else if (eventType.equals(MessageUtil.EVENT_TYPE_LOCATION)) {  
+                	message = messageService.findMessageByEvent(MessageUtil.EVENT_TYPE_LOCATION);
                 }  
                 //点击菜单事件
                 else if (eventType.equals(MessageUtil.EVENT_TYPE_CLICK)) {  
                 	//得到key_code
                     String keyCode = requestMap.get("EventKey");
                     //按 keyCode响应
-                    Message message = messageService.findMessageByMenu(keyCode);
+                    message = messageService.findMessageByMenu(keyCode);
                     if(message == null){
                     	return defaultResponse(fromUserName,toUserName);
-                    }else{
-                    	message.setMessageFromUser(toUserName);
-                    	message.setMessageToUser(fromUserName);
-                    	message.setMessageCreateTime(String.valueOf(new Date().getTime()));
-                    	String xmlMessage = MessageUtil.messageToXml(message);
-                    	if(xmlMessage!=null) return xmlMessage;
-                    	return defaultResponse(fromUserName, toUserName);
                     }
                 }  
             }
 		} catch (Exception e) {
 			e.printStackTrace();
-		}  
-        return null;
+		}
+		//message不为空，说明有消息
+		if(message!=null){
+			message.setMessageFromUser(toUserName);
+	    	message.setMessageToUser(fromUserName);
+	    	message.setMessageCreateTime(String.valueOf(new Date().getTime()));
+	    	String xmlMessage = MessageUtil.messageToXml(message);
+	    	if(xmlMessage!=null) return xmlMessage;
+		}
+		//否则目前不返回任何东西
+		return null;
+       
+       
 	}
 	
 	@RequestMapping("/saveTextMessage")
@@ -141,6 +164,24 @@ public class MessageController {
 		messageService.saveMessage(message);
 		return "success";
 	}
+	
+	@RequestMapping("/saveIntroMessage")
+	public @ResponseBody String saveIntroMessage() throws WechatEcxeption{
+		ArticleMessage newsMessage = new ArticleMessage();
+		newsMessage.setMessageType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+		List<Article> articles = new ArrayList<Article>();
+		Article article1 = new Article();  
+	    article1.setArticleTitle("小非私房菜");  
+	    article1.setArticleDescription("这个是总的概要介绍，介绍非姐的个人相关信息以及说明微信号将会给订阅者带来的那些方面的内容信息");  
+	    article1.setArticlePicUrl(ConnectWechatUtil.APP_CONTEXT_IMAGE_URL + "food.jpg");  
+	    article1.setArticleUrl("#");  
+	    articles.add(article1);
+	    newsMessage.setArticleCount(articles.size());
+		newsMessage.setArticles(articles);
+		messageService.saveMessage(newsMessage);
+		return "success";
+	}
+	
 	private String defaultResponse(String fromUserName, String toUserName) {
 		TextMessage textMessage = new TextMessage();
 		textMessage.setContent("亲,这个功能正在完善中...");
@@ -150,46 +191,27 @@ public class MessageController {
 		textMessage.setMessageCreateTime(String.valueOf(new Date().getTime()));
 		return MessageUtil.messageToXml(textMessage);
 	}
-	public String processSubscribeRequest(String msgType, String fromUserName,
-			String toUserName) {
-		ArticleMessage newsMessage = new ArticleMessage();
-		
-		newsMessage.setMessageCreateTime(String.valueOf(new Date().getTime()));
-		newsMessage.setMessageFromUser(toUserName);
-		newsMessage.setMessageToUser(fromUserName);
-		newsMessage.setMessageType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
-		
-		List<Article> articles = new ArrayList<Article>();
-		Article article1 = new Article();  
-	    article1.setArticleTitle("小非私房菜\n引言");  
-	    article1.setArticleDescription("");  
-	    article1.setArticlePicUrl(ConnectWechatUtil.APP_CONTEXT_IMAGE_URL + "food.jpg");  
-	    article1.setArticleUrl("");  
-	    articles.add(article1);
-		Article article2 = new Article();  
-		article2.setArticleTitle("第2篇\n最简单剁椒鱼做法");  
-		article2.setArticleDescription("湘菜的剁椒鱼头分为红色泡椒和绿色酱椒两种，一般来说，红色比较普遍，但是绿色才真的美味。而且剁椒鱼头的肉大且粗\n");  
-		article2.setArticlePicUrl(ConnectWechatUtil.APP_CONTEXT_IMAGE_URL + "yutou.jpg");  
-		article2.setArticleUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000139&itemidx=1&sign=acf99d39411954471b5146a2eba27eb3#wechat_redirect");  
-		articles.add(article2);
-		Article article3 = new Article();  
-		article3.setArticleTitle("第3篇\n自制山楂糕");  
-		article3.setArticleDescription("");  
-		article3.setArticlePicUrl(ConnectWechatUtil.APP_CONTEXT_IMAGE_URL + "szg16.jpg");  
-		article3.setArticleUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000134&itemidx=1&sign=b6e2d56fcce159b2b0bfe98d369cdb2b#wechat_redirect");  
-		articles.add(article3);
-		Article article4 = new Article();  
-		article4.setArticleTitle("第4篇\n白菜煮虾做法");  
-		article4.setArticleDescription("");  
-		article4.setArticlePicUrl(ConnectWechatUtil.APP_CONTEXT_IMAGE_URL + "getimgdata.jpg");  
-		article4.setArticleUrl("http://mp.weixin.qq.com/mp/appmsg/show?__biz=MjM5MTI5NzMyNQ==&appmsgid=10000126&itemidx=1&sign=815d188401f8ec9d035b5dd39ff5c738#wechat_redirect");  
-		articles.add(article4);  
-		
-		newsMessage.setArticleCount(articles.size());
-		newsMessage.setArticles(articles);
-		
-		return MessageUtil.messageToXml(newsMessage);
-	}
+//	public String processSubscribeRequest(String msgType, String fromUserName,
+//			String toUserName) {
+//		ArticleMessage newsMessage = new ArticleMessage();
+//		
+//		newsMessage.setMessageCreateTime(String.valueOf(new Date().getTime()));
+//		newsMessage.setMessageFromUser(toUserName);
+//		newsMessage.setMessageToUser(fromUserName);
+//		newsMessage.setMessageType(MessageUtil.RESP_MESSAGE_TYPE_NEWS);
+//		
+//		List<Article> articles = new ArrayList<Article>();
+//		Article article1 = new Article();  
+//	    article1.setArticleTitle("小非私房菜");  
+//	    article1.setArticleDescription("这个是总的概要介绍，介绍非姐的个人相关信息以及说明微信号将会给订阅者带来的那些方面的内容信息");  
+//	    article1.setArticlePicUrl(ConnectWechatUtil.APP_CONTEXT_IMAGE_URL + "food.jpg");  
+//	    article1.setArticleUrl("");  
+//	    articles.add(article1);
+//		
+//	    newsMessage.setArticleCount(articles.size());
+//		newsMessage.setArticles(articles);
+//		return MessageUtil.messageToXml(newsMessage);
+//	}
 
 	
 }

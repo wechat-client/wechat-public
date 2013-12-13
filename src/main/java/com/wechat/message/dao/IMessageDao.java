@@ -29,8 +29,15 @@ public interface IMessageDao {
 	 * @ description 依据menuId 来查找对应的message
 	 * @ reviewed_by
 	 */
-	Message loadMessageByMenu(String menuKeyCode);
-	
-	
+	Message loadMessageByMenuCode(String menuKeyCode);
+	/**
+	 * 
+	 * @ Message loadMessageByEvent(IMessageDao)
+	 * @ author liu.sheng.qi (liu.sheng.qi@fesco.com.cn)
+	 * @ date 2013年12月13日上午11:29:52
+	 * @ description 
+	 * @ reviewed_by
+	 */
+	Message loadMessageByEventCode(String eventCode);
 	
 }

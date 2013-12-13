@@ -16,4 +16,6 @@ public interface IMessageService {
 	
 	public Message findMessageByMenu(String menuCode);
 	
+	Message findMessageByEvent(String eventCode);
+	
 }

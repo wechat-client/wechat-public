@@ -23,14 +23,30 @@ public class MessageServiceImpl implements IMessageService {
 	@Resource(name="messageDao")
 	private IMessageDao messageDao;
 	
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * @see com.wechat.message.service.IMessageService#saveMessage(com.wechat.message.pojo.Message)
+	 */
 	public void saveMessage(Message message) throws WechatEcxeption {
 		messageDao.saveMessage(message);
 	}
 
-	@Override
+	/*
+	 * (non-Javadoc)
+	 * @see com.wechat.message.service.IMessageService#findMessageByMenu(java.lang.String)
+	 */
 	public Message findMessageByMenu(String menuCode) {
-		return messageDao.loadMessageByMenu(menuCode);
+		return messageDao.loadMessageByMenuCode(menuCode);
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see com.wechat.message.service.IMessageService#findMessageByEvent(java.lang.String)
+	 */
+	public Message findMessageByEvent(String eventCode) {
+		
+		return messageDao.loadMessageByEventCode(eventCode);
+		
 	}
 
 }
