@@ -16,3 +16,26 @@
 .main .long-block{
 	text-align:center;padding:20px 0 0 0;height:100px;
 }
+
+.navbar-custom{
+	background-color:#6633FF;
+	color:#FFF;
+}
+
+.navbar-custom a{
+	text-decoration: none;
+	color:#FFF;
+}
+.navbar-nav > li > a{
+	line-height:30px;
+}
+.nav > li > a:hover, .nav > li > a:focus{
+	background-color:#6633CC;
+}
+.nav{
+	width:100%;
+}
+.nav li{
+	text-align:center;
+	width:100%;
+}
