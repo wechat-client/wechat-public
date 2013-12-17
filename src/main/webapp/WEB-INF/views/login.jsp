@@ -13,7 +13,7 @@
     <title></title>
 
     <!-- Bootstrap core CSS -->
-    <link href="${ctx}/css/bootstrap.css" rel="stylesheet">
+    <link href="${ctx}/css/bootstrap-c.css" rel="stylesheet">
 
   </head>
 

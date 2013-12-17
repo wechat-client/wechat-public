@@ -39,3 +39,17 @@
 	text-align:center;
 	width:100%;
 }
+
+/**********************article list************************/
+#main{margin:10px 5px 60px 5px;}
+#main .row{margin: 0;}
+#main a{
+	color: #333;
+	text-decoration: none;
+}
+.media>a>img{width:60px;height:60px;}
+.media-heading {margin: 0 0 2px;}
+/**********************article ************************/
+blockquote small:before, blockquote .small:before {
+content: '';
+}

@@ -1,6 +1,4 @@
 <%String cssBasePath=request.getContextPath(); %>
-<link rel="stylesheet" href="<%=cssBasePath%>/css/thickbox.css"/>
-<link rel="stylesheet" href="<%=cssBasePath%>/css/common.css"/>
-<link rel="stylesheet" href="<%=cssBasePath%>/css/invalid.css"/>
-<link rel="stylesheet" href="<%=cssBasePath%>/css/editor.css"/>
-<link rel="stylesheet" href="<%=cssBasePath%>/css/tts.css"/>
+<link href="<%=cssBasePath %>/css/bootstrap-c.css" rel="stylesheet">
+<link href="<%=cssBasePath %>/css/font-awesome-4.0.3/css/font-awesome.min.css" rel="stylesheet">
+<link href="<%=cssBasePath %>/css/custom.css" rel="stylesheet">
