@@ -94,7 +94,7 @@ public class MessageUtil {
     public static final String EVENT_TYPE_UNSUBSCRIBE = "unsubscribe";  
     
     /** 
-     * 事件类型：unsubscribe(取消订阅) 
+     * 事件类型：地理位置
      */  
     public static final String EVENT_TYPE_LOCATION = "LOCATION"; 
     
@@ -123,7 +123,6 @@ public class MessageUtil {
     public static Map<String, String> parseXml(HttpServletRequest request) throws Exception {  
         // 将解析结果存储在HashMap中  
         Map<String, String> map = new HashMap<String, String>();  
-  
         // 从request中取得输入流  
         InputStream inputStream = request.getInputStream();  
         // 读取输入流  

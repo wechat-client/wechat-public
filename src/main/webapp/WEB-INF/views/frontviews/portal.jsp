@@ -43,7 +43,7 @@
 
 			<!-- first row -->			
 			<div class="row main" style="margin:10px 0 0 0;">
-				<a href="http://www.baidu.com">
+				<a href="http://wd.koudai.com/vshop/1/H5/index.html?userid=378166&from=singlemessage&isappinstalled=0">
 				<div class="col-sm-3 col-md-3 col-xs-4 short-block" style="background:#0066FF;">
 					<p><i class="fa fa-shopping-cart fa-4x"></i></p>
 					<p>微商城</p>
@@ -51,7 +51,7 @@
 				</a>
 				<div class="col-sm-6 col-md-6 col-xs-8" style="background:#333333;padding: 0 15px 0 17px;">
 					<div class="row">
-						<a href="http://www.baidu.com">
+						<a href="http://shop106322402.m.taobao.com">
 						<div class="col-xs-12 col-sm-12 col-md-12 long-block" style="background:#009933;">
 							<i class="fa fa fa-credit-card fa-4x"></i>&nbsp;&nbsp;淘宝小店
 						</div>
@@ -73,7 +73,7 @@
 					<a href="${ctx }/article/list/02">
 					<div class="col-xs-12 col-sm-12 col-md-12 short-block" style="background:#666633;">
 						<p><i class="fa fa-pagelines fa-4x"></i></p>
-						<p>温灸养生</p>
+						<p>养生堂</p>
 					</div>
 					</a>
 				</div>
@@ -83,7 +83,7 @@
 					<a href="${ctx }/article/list/03">
 						<div class="col-xs-12 col-sm-12 col-md-12 short-block" style="background:#6666CC;">
 							<p><i class="fa fa-thumbs-up fa-4x"></i></p>
-							<p>非推荐</p>
+							<p>案例分享</p>
 						</div>
 					</a>
 				</div>
